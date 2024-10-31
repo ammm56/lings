@@ -5,14 +5,14 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_DonePruningPointUtxoSetChunks) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_DonePruningPointUtxoSetChunks) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_DonePruningPointUtxoSetChunks is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_DonePruningPointUtxoSetChunks is nil")
 	}
 	return &appmessage.MsgDonePruningPointUTXOSetChunks{}, nil
 }
 
-func (x *HoosatdMessage_DonePruningPointUtxoSetChunks) fromAppMessage(_ *appmessage.MsgDonePruningPointUTXOSetChunks) error {
+func (x *LingsMessage_DonePruningPointUtxoSetChunks) fromAppMessage(_ *appmessage.MsgDonePruningPointUTXOSetChunks) error {
 	x.DonePruningPointUtxoSetChunks = &DonePruningPointUtxoSetChunksMessage{}
 	return nil
 }

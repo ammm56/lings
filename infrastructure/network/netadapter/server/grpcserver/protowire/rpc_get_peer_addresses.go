@@ -5,25 +5,25 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetPeerAddressesRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetPeerAddressesRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetPeerAddressesRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetPeerAddressesRequest is nil")
 	}
 	return &appmessage.GetPeerAddressesRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_GetPeerAddressesRequest) fromAppMessage(_ *appmessage.GetPeerAddressesRequestMessage) error {
+func (x *LingsMessage_GetPeerAddressesRequest) fromAppMessage(_ *appmessage.GetPeerAddressesRequestMessage) error {
 	return nil
 }
 
-func (x *HoosatdMessage_GetPeerAddressesResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetPeerAddressesResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetPeerAddressesResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetPeerAddressesResponse is nil")
 	}
 	return x.GetPeerAddressesResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetPeerAddressesResponse) fromAppMessage(message *appmessage.GetPeerAddressesResponseMessage) error {
+func (x *LingsMessage_GetPeerAddressesResponse) fromAppMessage(message *appmessage.GetPeerAddressesResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}

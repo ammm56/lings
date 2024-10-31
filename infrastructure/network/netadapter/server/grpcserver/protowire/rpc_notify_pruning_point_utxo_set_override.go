@@ -5,26 +5,26 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_NotifyPruningPointUTXOSetOverrideRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyPruningPointUTXOSetOverrideRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyPruningPointUTXOSetOverrideRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyPruningPointUTXOSetOverrideRequest is nil")
 	}
 	return &appmessage.NotifyPruningPointUTXOSetOverrideRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_NotifyPruningPointUTXOSetOverrideRequest) fromAppMessage(_ *appmessage.NotifyPruningPointUTXOSetOverrideRequestMessage) error {
+func (x *LingsMessage_NotifyPruningPointUTXOSetOverrideRequest) fromAppMessage(_ *appmessage.NotifyPruningPointUTXOSetOverrideRequestMessage) error {
 	x.NotifyPruningPointUTXOSetOverrideRequest = &NotifyPruningPointUTXOSetOverrideRequestMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_NotifyPruningPointUTXOSetOverrideResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyPruningPointUTXOSetOverrideResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyPruningPointUTXOSetOverrideResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyPruningPointUTXOSetOverrideResponse is nil")
 	}
 	return x.NotifyPruningPointUTXOSetOverrideResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_NotifyPruningPointUTXOSetOverrideResponse) fromAppMessage(message *appmessage.NotifyPruningPointUTXOSetOverrideResponseMessage) error {
+func (x *LingsMessage_NotifyPruningPointUTXOSetOverrideResponse) fromAppMessage(message *appmessage.NotifyPruningPointUTXOSetOverrideResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}
@@ -49,38 +49,38 @@ func (x *NotifyPruningPointUTXOSetOverrideResponseMessage) toAppMessage() (appme
 	}, nil
 }
 
-func (x *HoosatdMessage_PruningPointUTXOSetOverrideNotification) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_PruningPointUTXOSetOverrideNotification) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_PruningPointUTXOSetOverrideNotification is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_PruningPointUTXOSetOverrideNotification is nil")
 	}
 	return &appmessage.PruningPointUTXOSetOverrideNotificationMessage{}, nil
 }
 
-func (x *HoosatdMessage_PruningPointUTXOSetOverrideNotification) fromAppMessage(_ *appmessage.PruningPointUTXOSetOverrideNotificationMessage) error {
+func (x *LingsMessage_PruningPointUTXOSetOverrideNotification) fromAppMessage(_ *appmessage.PruningPointUTXOSetOverrideNotificationMessage) error {
 	x.PruningPointUTXOSetOverrideNotification = &PruningPointUTXOSetOverrideNotificationMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_StopNotifyingPruningPointUTXOSetOverrideRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_StopNotifyingPruningPointUTXOSetOverrideRequest is nil")
 	}
 	return &appmessage.StopNotifyingPruningPointUTXOSetOverrideRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideRequest) fromAppMessage(_ *appmessage.StopNotifyingPruningPointUTXOSetOverrideRequestMessage) error {
+func (x *LingsMessage_StopNotifyingPruningPointUTXOSetOverrideRequest) fromAppMessage(_ *appmessage.StopNotifyingPruningPointUTXOSetOverrideRequestMessage) error {
 	x.StopNotifyingPruningPointUTXOSetOverrideRequest = &StopNotifyingPruningPointUTXOSetOverrideRequestMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_StopNotifyingPruningPointUTXOSetOverrideResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_StopNotifyingPruningPointUTXOSetOverrideResponse is nil")
 	}
 	return x.StopNotifyingPruningPointUTXOSetOverrideResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideResponse) fromAppMessage(
+func (x *LingsMessage_StopNotifyingPruningPointUTXOSetOverrideResponse) fromAppMessage(
 	message *appmessage.StopNotifyingPruningPointUTXOSetOverrideResponseMessage) error {
 
 	var err *RPCError

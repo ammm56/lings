@@ -5,26 +5,26 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_NotifyVirtualDaaScoreChangedRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyVirtualDaaScoreChangedRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyVirtualDaaScoreChangedRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyVirtualDaaScoreChangedRequest is nil")
 	}
 	return &appmessage.NotifyVirtualDaaScoreChangedRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_NotifyVirtualDaaScoreChangedRequest) fromAppMessage(_ *appmessage.NotifyVirtualDaaScoreChangedRequestMessage) error {
+func (x *LingsMessage_NotifyVirtualDaaScoreChangedRequest) fromAppMessage(_ *appmessage.NotifyVirtualDaaScoreChangedRequestMessage) error {
 	x.NotifyVirtualDaaScoreChangedRequest = &NotifyVirtualDaaScoreChangedRequestMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_NotifyVirtualDaaScoreChangedResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyVirtualDaaScoreChangedResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyVirtualDaaScoreChangedResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyVirtualDaaScoreChangedResponse is nil")
 	}
 	return x.NotifyVirtualDaaScoreChangedResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_NotifyVirtualDaaScoreChangedResponse) fromAppMessage(message *appmessage.NotifyVirtualDaaScoreChangedResponseMessage) error {
+func (x *LingsMessage_NotifyVirtualDaaScoreChangedResponse) fromAppMessage(message *appmessage.NotifyVirtualDaaScoreChangedResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}
@@ -49,14 +49,14 @@ func (x *NotifyVirtualDaaScoreChangedResponseMessage) toAppMessage() (appmessage
 	}, nil
 }
 
-func (x *HoosatdMessage_VirtualDaaScoreChangedNotification) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_VirtualDaaScoreChangedNotification) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_VirtualDaaScoreChangedNotification is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_VirtualDaaScoreChangedNotification is nil")
 	}
 	return x.VirtualDaaScoreChangedNotification.toAppMessage()
 }
 
-func (x *HoosatdMessage_VirtualDaaScoreChangedNotification) fromAppMessage(message *appmessage.VirtualDaaScoreChangedNotificationMessage) error {
+func (x *LingsMessage_VirtualDaaScoreChangedNotification) fromAppMessage(message *appmessage.VirtualDaaScoreChangedNotificationMessage) error {
 	x.VirtualDaaScoreChangedNotification = &VirtualDaaScoreChangedNotificationMessage{
 		VirtualDaaScore: message.VirtualDaaScore,
 	}

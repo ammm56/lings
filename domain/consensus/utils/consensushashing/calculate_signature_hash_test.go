@@ -340,7 +340,7 @@ func TestSignatureHash(t *testing.T) {
 	fmt.Printf("%s\r\n", genesisCoinbaseTransactionID)
 
 	address1Str := "lings:qzdz9t3j5pmrmqwzj3htquk82kxj77uqdh47ucq23wv00evkxnff6sefjdrg4"
-	address1, err := util.DecodeAddress(address1Str, util.Bech32PrefixHoosat)
+	address1, err := util.DecodeAddress(address1Str, util.Bech32PrefixLings)
 	if err != nil {
 		t.Errorf("error decoding address1: %+v", err)
 	}
@@ -350,7 +350,7 @@ func TestSignatureHash(t *testing.T) {
 	}
 
 	address2Str := "lings:qrt7lyuplddukhjnm8wlu9dy3npz2j58a6qhpm9cmdawfw5ymmhxgpvmwfnsp"
-	address2, err := util.DecodeAddress(address2Str, util.Bech32PrefixHoosat)
+	address2, err := util.DecodeAddress(address2Str, util.Bech32PrefixLings)
 	if err != nil {
 		t.Errorf("error decoding address2: %+v", err)
 	}
@@ -392,7 +392,7 @@ func generateTxs() (nativeTx, subnetworkTx *externalapi.DomainTransaction, err e
 	fmt.Printf("%s\r\n", genesisCoinbaseTransactionID)
 
 	address1Str := "lings:qrt7lyuplddukhjnm8wlu9dy3npz2j58a6qhpm9cmdawfw5ymmhxgpvmwfnsp"
-	address1, err := util.DecodeAddress(address1Str, util.Bech32PrefixHoosat)
+	address1, err := util.DecodeAddress(address1Str, util.Bech32PrefixLings)
 	if err != nil {
 		return nil, nil, fmt.Errorf("error decoding address1: %+v", err)
 	}
@@ -402,7 +402,7 @@ func generateTxs() (nativeTx, subnetworkTx *externalapi.DomainTransaction, err e
 	}
 
 	address2Str := "lings:qrt7lyuplddukhjnm8wlu9dy3npz2j58a6qhpm9cmdawfw5ymmhxgpvmwfnsp"
-	address2, err := util.DecodeAddress(address2Str, util.Bech32PrefixHoosat)
+	address2, err := util.DecodeAddress(address2Str, util.Bech32PrefixLings)
 	if err != nil {
 		return nil, nil, fmt.Errorf("error decoding address2: %+v", err)
 	}
@@ -545,7 +545,7 @@ func generateInputs(size int, sourceScript *externalapi.ScriptPublicKey) []*exte
 func getSourceScript(b *testing.B) *externalapi.ScriptPublicKey {
 	sourceAddressStr := "lingssim:qz6f9z6l3x4v3lf9mgf0t934th4nx5kgzu663x9yjh"
 
-	sourceAddress, err := util.DecodeAddress(sourceAddressStr, util.Bech32PrefixHoosatSim)
+	sourceAddress, err := util.DecodeAddress(sourceAddressStr, util.Bech32PrefixLingsSim)
 	if err != nil {
 		b.Fatalf("Error from DecodeAddress: %+v", err)
 	}

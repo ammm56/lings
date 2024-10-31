@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2024-2025 Hoosat Oy
+Copyright (c) 2024-2025 Lings Oy
 Copyright (c) 2018-2019 The kaspanet developers
 Copyright (c) 2013-2018 The btcsuite developers
 Copyright (c) 2015-2016 The Decred developers

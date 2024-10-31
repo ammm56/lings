@@ -10,8 +10,8 @@ import (
 	"github.com/ammm56/lings/domain/dagconfig"
 )
 
-// RunHoosatdForTesting runs lings for testing purposes
-func RunHoosatdForTesting(t *testing.T, testName string, rpcAddress string) func() {
+// RunLingsForTesting runs lings for testing purposes
+func RunLingsForTesting(t *testing.T, testName string, rpcAddress string) func() {
 	appDir, err := TempDir(testName)
 	if err != nil {
 		t.Fatalf("TempDir: %s", err)
@@ -27,14 +27,14 @@ func RunHoosatdForTesting(t *testing.T, testName string, rpcAddress string) func
 	if err != nil {
 		t.Fatalf("StartCmd: %s", err)
 	}
-	t.Logf("Hoosatd started with --appdir=%s", appDir)
+	t.Logf("Lings started with --appdir=%s", appDir)
 
 	isShutdown := uint64(0)
 	go func() {
 		err := lingsRunCommand.Wait()
 		if err != nil {
 			if atomic.LoadUint64(&isShutdown) == 0 {
-				panic(fmt.Sprintf("Hoosatd closed unexpectedly: %s. See logs at: %s", err, appDir))
+				panic(fmt.Sprintf("Lings closed unexpectedly: %s. See logs at: %s", err, appDir))
 			}
 		}
 	}()
@@ -49,6 +49,6 @@ func RunHoosatdForTesting(t *testing.T, testName string, rpcAddress string) func
 			t.Fatalf("RemoveAll: %s", err)
 		}
 		atomic.StoreUint64(&isShutdown, 1)
-		t.Logf("Hoosatd stopped")
+		t.Logf("Lings stopped")
 	}
 }

@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_BlockHeaders) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_BlockHeaders) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_BlockHeaders is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_BlockHeaders is nil")
 	}
 	blockHeaders, err := x.BlockHeaders.toAppMessage()
 	if err != nil {
@@ -34,7 +34,7 @@ func (x *BlockHeadersMessage) toAppMessage() ([]*appmessage.MsgBlockHeader, erro
 	return blockHeaders, nil
 }
 
-func (x *HoosatdMessage_BlockHeaders) fromAppMessage(blockHeadersMessage *appmessage.BlockHeadersMessage) error {
+func (x *LingsMessage_BlockHeaders) fromAppMessage(blockHeadersMessage *appmessage.BlockHeadersMessage) error {
 	blockHeaders := make([]*BlockHeader, len(blockHeadersMessage.BlockHeaders))
 	for i, blockHeader := range blockHeadersMessage.BlockHeaders {
 		blockHeaders[i] = &BlockHeader{}

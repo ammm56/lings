@@ -1,6 +1,6 @@
 # lingsminer
 
-Hoosatminer is a CPU-based miner for lings
+Lingsminer is a CPU-based miner for lings
 
 ## Requirements
 

@@ -258,7 +258,7 @@ func (c *ConnectionManager) seedFromDNS() {
 	if len(c.activeOutgoing) == 0 && !cfg.DisableDNSSeed {
 		dnsseed.SeedFromDNS(cfg.NetParams(), cfg.DNSSeed, false, nil,
 			cfg.Lookup, func(addresses []*appmessage.NetAddress) {
-				// Hoosatd uses a lookup of the dns seeder here. Since seeder returns
+				// Lings uses a lookup of the dns seeder here. Since seeder returns
 				// IPs of nodes and not its own IP, we can not know real IP of
 				// source. So we'll take first returned address as source.
 				_ = c.addressManager.AddAddresses(addresses...)

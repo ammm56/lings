@@ -1,4 +1,4 @@
-# Hoosatd Sanity tool
+# Lings Sanity tool
 This tries to run kapad with different sets of arguments for sanity.
 
 In order to get clean run for each command, the tool injects its own --appdir

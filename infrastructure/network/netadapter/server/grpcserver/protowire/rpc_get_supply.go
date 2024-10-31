@@ -5,23 +5,23 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetCoinSupplyRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetCoinSupplyRequest) toAppMessage() (appmessage.Message, error) {
 	return &appmessage.GetCoinSupplyRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_GetCoinSupplyRequest) fromAppMessage(_ *appmessage.GetCoinSupplyRequestMessage) error {
+func (x *LingsMessage_GetCoinSupplyRequest) fromAppMessage(_ *appmessage.GetCoinSupplyRequestMessage) error {
 	x.GetCoinSupplyRequest = &GetCoinSupplyRequestMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_GetCoinSupplyResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetCoinSupplyResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetCoinSupplyResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetCoinSupplyResponse is nil")
 	}
 	return x.GetCoinSupplyResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetCoinSupplyResponse) fromAppMessage(message *appmessage.GetCoinSupplyResponseMessage) error {
+func (x *LingsMessage_GetCoinSupplyResponse) fromAppMessage(message *appmessage.GetCoinSupplyResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}

@@ -152,7 +152,7 @@ func (c *coinbaseManager) coinbaseOutputForBlueBlockV2(stagingArea *model.Stagin
 		return nil, nil, false, err
 	}
 
-	devFeeDecodedAddress, err := util.DecodeAddress(constants.DevFeeAddress, util.Bech32PrefixHoosat)
+	devFeeDecodedAddress, err := util.DecodeAddress(constants.DevFeeAddress, util.Bech32PrefixLings)
 	if err != nil {
 		return nil, nil, false, err
 	}
@@ -226,7 +226,7 @@ func (c *coinbaseManager) coinbaseOutputForRewardFromRedBlocksV2(stagingArea *mo
 		totalReward += reward
 	}
 
-	devFeeDecodedAddress, err := util.DecodeAddress(constants.DevFeeAddress, util.Bech32PrefixHoosat)
+	devFeeDecodedAddress, err := util.DecodeAddress(constants.DevFeeAddress, util.Bech32PrefixLings)
 	if err != nil {
 		return nil, nil, false, err
 	}

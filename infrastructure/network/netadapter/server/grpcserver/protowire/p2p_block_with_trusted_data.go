@@ -8,9 +8,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_BlockWithTrustedData) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_BlockWithTrustedData) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_BlockWithTrustedData is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_BlockWithTrustedData is nil")
 	}
 
 	msgBlock, err := x.BlockWithTrustedData.Block.toAppMessage()
@@ -52,7 +52,7 @@ func (x *HoosatdMessage_BlockWithTrustedData) toAppMessage() (appmessage.Message
 	}, nil
 }
 
-func (x *HoosatdMessage_BlockWithTrustedData) fromAppMessage(msgBlockWithTrustedData *appmessage.MsgBlockWithTrustedData) error {
+func (x *LingsMessage_BlockWithTrustedData) fromAppMessage(msgBlockWithTrustedData *appmessage.MsgBlockWithTrustedData) error {
 	x.BlockWithTrustedData = &BlockWithTrustedDataMessage{
 		Block:        &BlockMessage{},
 		DaaScore:     msgBlockWithTrustedData.DAAScore,

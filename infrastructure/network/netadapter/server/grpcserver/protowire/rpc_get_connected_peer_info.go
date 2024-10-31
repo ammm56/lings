@@ -5,22 +5,22 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetConnectedPeerInfoRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetConnectedPeerInfoRequest) toAppMessage() (appmessage.Message, error) {
 	return &appmessage.GetConnectedPeerInfoRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_GetConnectedPeerInfoRequest) fromAppMessage(_ *appmessage.GetConnectedPeerInfoRequestMessage) error {
+func (x *LingsMessage_GetConnectedPeerInfoRequest) fromAppMessage(_ *appmessage.GetConnectedPeerInfoRequestMessage) error {
 	return nil
 }
 
-func (x *HoosatdMessage_GetConnectedPeerInfoResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetConnectedPeerInfoResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetConnectedPeerInfoResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetConnectedPeerInfoResponse is nil")
 	}
 	return x.GetConnectedPeerInfoResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetConnectedPeerInfoResponse) fromAppMessage(message *appmessage.GetConnectedPeerInfoResponseMessage) error {
+func (x *LingsMessage_GetConnectedPeerInfoResponse) fromAppMessage(message *appmessage.GetConnectedPeerInfoResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}

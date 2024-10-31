@@ -9,10 +9,10 @@ type converter interface {
 	toAppMessage() (appmessage.Message, error)
 }
 
-// ToAppMessage converts a HoosatdMessage to its appmessage.Message representation
-func (x *HoosatdMessage) ToAppMessage() (appmessage.Message, error) {
+// ToAppMessage converts a LingsMessage to its appmessage.Message representation
+func (x *LingsMessage) ToAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage is nil")
 	}
 	converter, ok := x.Payload.(converter)
 	if !ok {
@@ -25,18 +25,18 @@ func (x *HoosatdMessage) ToAppMessage() (appmessage.Message, error) {
 	return appMessage, nil
 }
 
-// FromAppMessage creates a HoosatdMessage from a appmessage.Message
-func FromAppMessage(message appmessage.Message) (*HoosatdMessage, error) {
+// FromAppMessage creates a LingsMessage from a appmessage.Message
+func FromAppMessage(message appmessage.Message) (*LingsMessage, error) {
 	payload, err := toPayload(message)
 	if err != nil {
 		return nil, err
 	}
-	return &HoosatdMessage{
+	return &LingsMessage{
 		Payload: payload,
 	}, nil
 }
 
-func toPayload(message appmessage.Message) (isHoosatdMessage_Payload, error) {
+func toPayload(message appmessage.Message) (isLingsMessage_Payload, error) {
 	p2pPayload, err := toP2PPayload(message)
 	if err != nil {
 		return nil, err
@@ -56,304 +56,304 @@ func toPayload(message appmessage.Message) (isHoosatdMessage_Payload, error) {
 	return nil, errors.Errorf("unknown message type %T", message)
 }
 
-func toP2PPayload(message appmessage.Message) (isHoosatdMessage_Payload, error) {
+func toP2PPayload(message appmessage.Message) (isLingsMessage_Payload, error) {
 	switch message := message.(type) {
 	case *appmessage.MsgAddresses:
-		payload := new(HoosatdMessage_Addresses)
+		payload := new(LingsMessage_Addresses)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgBlock:
-		payload := new(HoosatdMessage_Block)
+		payload := new(LingsMessage_Block)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestBlockLocator:
-		payload := new(HoosatdMessage_RequestBlockLocator)
+		payload := new(LingsMessage_RequestBlockLocator)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgBlockLocator:
-		payload := new(HoosatdMessage_BlockLocator)
+		payload := new(LingsMessage_BlockLocator)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestAddresses:
-		payload := new(HoosatdMessage_RequestAddresses)
+		payload := new(LingsMessage_RequestAddresses)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestIBDBlocks:
-		payload := new(HoosatdMessage_RequestIBDBlocks)
+		payload := new(LingsMessage_RequestIBDBlocks)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestNextHeaders:
-		payload := new(HoosatdMessage_RequestNextHeaders)
+		payload := new(LingsMessage_RequestNextHeaders)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgDoneHeaders:
-		payload := new(HoosatdMessage_DoneHeaders)
+		payload := new(LingsMessage_DoneHeaders)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestRelayBlocks:
-		payload := new(HoosatdMessage_RequestRelayBlocks)
+		payload := new(LingsMessage_RequestRelayBlocks)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestTransactions:
-		payload := new(HoosatdMessage_RequestTransactions)
+		payload := new(LingsMessage_RequestTransactions)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgTransactionNotFound:
-		payload := new(HoosatdMessage_TransactionNotFound)
+		payload := new(LingsMessage_TransactionNotFound)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgInvRelayBlock:
-		payload := new(HoosatdMessage_InvRelayBlock)
+		payload := new(LingsMessage_InvRelayBlock)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgInvTransaction:
-		payload := new(HoosatdMessage_InvTransactions)
+		payload := new(LingsMessage_InvTransactions)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgPing:
-		payload := new(HoosatdMessage_Ping)
+		payload := new(LingsMessage_Ping)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgPong:
-		payload := new(HoosatdMessage_Pong)
+		payload := new(LingsMessage_Pong)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgTx:
-		payload := new(HoosatdMessage_Transaction)
+		payload := new(LingsMessage_Transaction)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgVerAck:
-		payload := new(HoosatdMessage_Verack)
+		payload := new(LingsMessage_Verack)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgVersion:
-		payload := new(HoosatdMessage_Version)
+		payload := new(LingsMessage_Version)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgReject:
-		payload := new(HoosatdMessage_Reject)
+		payload := new(LingsMessage_Reject)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestPruningPointUTXOSet:
-		payload := new(HoosatdMessage_RequestPruningPointUTXOSet)
+		payload := new(LingsMessage_RequestPruningPointUTXOSet)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgPruningPointUTXOSetChunk:
-		payload := new(HoosatdMessage_PruningPointUtxoSetChunk)
+		payload := new(LingsMessage_PruningPointUtxoSetChunk)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgUnexpectedPruningPoint:
-		payload := new(HoosatdMessage_UnexpectedPruningPoint)
+		payload := new(LingsMessage_UnexpectedPruningPoint)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgIBDBlockLocator:
-		payload := new(HoosatdMessage_IbdBlockLocator)
+		payload := new(LingsMessage_IbdBlockLocator)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgIBDBlockLocatorHighestHash:
-		payload := new(HoosatdMessage_IbdBlockLocatorHighestHash)
+		payload := new(LingsMessage_IbdBlockLocatorHighestHash)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgIBDBlockLocatorHighestHashNotFound:
-		payload := new(HoosatdMessage_IbdBlockLocatorHighestHashNotFound)
+		payload := new(LingsMessage_IbdBlockLocatorHighestHashNotFound)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.BlockHeadersMessage:
-		payload := new(HoosatdMessage_BlockHeaders)
+		payload := new(LingsMessage_BlockHeaders)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestNextPruningPointUTXOSetChunk:
-		payload := new(HoosatdMessage_RequestNextPruningPointUtxoSetChunk)
+		payload := new(LingsMessage_RequestNextPruningPointUtxoSetChunk)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgDonePruningPointUTXOSetChunks:
-		payload := new(HoosatdMessage_DonePruningPointUtxoSetChunks)
+		payload := new(LingsMessage_DonePruningPointUtxoSetChunks)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgBlockWithTrustedData:
-		payload := new(HoosatdMessage_BlockWithTrustedData)
+		payload := new(LingsMessage_BlockWithTrustedData)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestPruningPointAndItsAnticone:
-		payload := new(HoosatdMessage_RequestPruningPointAndItsAnticone)
+		payload := new(LingsMessage_RequestPruningPointAndItsAnticone)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgDoneBlocksWithTrustedData:
-		payload := new(HoosatdMessage_DoneBlocksWithTrustedData)
+		payload := new(LingsMessage_DoneBlocksWithTrustedData)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgIBDBlock:
-		payload := new(HoosatdMessage_IbdBlock)
+		payload := new(LingsMessage_IbdBlock)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestHeaders:
-		payload := new(HoosatdMessage_RequestHeaders)
+		payload := new(LingsMessage_RequestHeaders)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgPruningPoints:
-		payload := new(HoosatdMessage_PruningPoints)
+		payload := new(LingsMessage_PruningPoints)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestPruningPointProof:
-		payload := new(HoosatdMessage_RequestPruningPointProof)
+		payload := new(LingsMessage_RequestPruningPointProof)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgPruningPointProof:
-		payload := new(HoosatdMessage_PruningPointProof)
+		payload := new(LingsMessage_PruningPointProof)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgReady:
-		payload := new(HoosatdMessage_Ready)
+		payload := new(LingsMessage_Ready)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgTrustedData:
-		payload := new(HoosatdMessage_TrustedData)
+		payload := new(LingsMessage_TrustedData)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgBlockWithTrustedDataV4:
-		payload := new(HoosatdMessage_BlockWithTrustedDataV4)
+		payload := new(LingsMessage_BlockWithTrustedDataV4)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestNextPruningPointAndItsAnticoneBlocks:
-		payload := new(HoosatdMessage_RequestNextPruningPointAndItsAnticoneBlocks)
+		payload := new(LingsMessage_RequestNextPruningPointAndItsAnticoneBlocks)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestIBDChainBlockLocator:
-		payload := new(HoosatdMessage_RequestIBDChainBlockLocator)
+		payload := new(LingsMessage_RequestIBDChainBlockLocator)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgIBDChainBlockLocator:
-		payload := new(HoosatdMessage_IbdChainBlockLocator)
+		payload := new(LingsMessage_IbdChainBlockLocator)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.MsgRequestAnticone:
-		payload := new(HoosatdMessage_RequestAnticone)
+		payload := new(LingsMessage_RequestAnticone)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
@@ -364,605 +364,605 @@ func toP2PPayload(message appmessage.Message) (isHoosatdMessage_Payload, error) 
 	}
 }
 
-func toRPCPayload(message appmessage.Message) (isHoosatdMessage_Payload, error) {
+func toRPCPayload(message appmessage.Message) (isLingsMessage_Payload, error) {
 	switch message := message.(type) {
 	case *appmessage.GetCurrentNetworkRequestMessage:
-		payload := new(HoosatdMessage_GetCurrentNetworkRequest)
+		payload := new(LingsMessage_GetCurrentNetworkRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetCurrentNetworkResponseMessage:
-		payload := new(HoosatdMessage_GetCurrentNetworkResponse)
+		payload := new(LingsMessage_GetCurrentNetworkResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.SubmitBlockRequestMessage:
-		payload := new(HoosatdMessage_SubmitBlockRequest)
+		payload := new(LingsMessage_SubmitBlockRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.SubmitBlockResponseMessage:
-		payload := new(HoosatdMessage_SubmitBlockResponse)
+		payload := new(LingsMessage_SubmitBlockResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockTemplateRequestMessage:
-		payload := new(HoosatdMessage_GetBlockTemplateRequest)
+		payload := new(LingsMessage_GetBlockTemplateRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockTemplateResponseMessage:
-		payload := new(HoosatdMessage_GetBlockTemplateResponse)
+		payload := new(LingsMessage_GetBlockTemplateResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyBlockAddedRequestMessage:
-		payload := new(HoosatdMessage_NotifyBlockAddedRequest)
+		payload := new(LingsMessage_NotifyBlockAddedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyBlockAddedResponseMessage:
-		payload := new(HoosatdMessage_NotifyBlockAddedResponse)
+		payload := new(LingsMessage_NotifyBlockAddedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.BlockAddedNotificationMessage:
-		payload := new(HoosatdMessage_BlockAddedNotification)
+		payload := new(LingsMessage_BlockAddedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetPeerAddressesRequestMessage:
-		payload := new(HoosatdMessage_GetPeerAddressesRequest)
+		payload := new(LingsMessage_GetPeerAddressesRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetPeerAddressesResponseMessage:
-		payload := new(HoosatdMessage_GetPeerAddressesResponse)
+		payload := new(LingsMessage_GetPeerAddressesResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetSelectedTipHashRequestMessage:
-		payload := new(HoosatdMessage_GetSelectedTipHashRequest)
+		payload := new(LingsMessage_GetSelectedTipHashRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetSelectedTipHashResponseMessage:
-		payload := new(HoosatdMessage_GetSelectedTipHashResponse)
+		payload := new(LingsMessage_GetSelectedTipHashResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntryRequestMessage:
-		payload := new(HoosatdMessage_GetMempoolEntryRequest)
+		payload := new(LingsMessage_GetMempoolEntryRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntryResponseMessage:
-		payload := new(HoosatdMessage_GetMempoolEntryResponse)
+		payload := new(LingsMessage_GetMempoolEntryResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetConnectedPeerInfoRequestMessage:
-		payload := new(HoosatdMessage_GetConnectedPeerInfoRequest)
+		payload := new(LingsMessage_GetConnectedPeerInfoRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetConnectedPeerInfoResponseMessage:
-		payload := new(HoosatdMessage_GetConnectedPeerInfoResponse)
+		payload := new(LingsMessage_GetConnectedPeerInfoResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.AddPeerRequestMessage:
-		payload := new(HoosatdMessage_AddPeerRequest)
+		payload := new(LingsMessage_AddPeerRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.AddPeerResponseMessage:
-		payload := new(HoosatdMessage_AddPeerResponse)
+		payload := new(LingsMessage_AddPeerResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.SubmitTransactionRequestMessage:
-		payload := new(HoosatdMessage_SubmitTransactionRequest)
+		payload := new(LingsMessage_SubmitTransactionRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.SubmitTransactionResponseMessage:
-		payload := new(HoosatdMessage_SubmitTransactionResponse)
+		payload := new(LingsMessage_SubmitTransactionResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualSelectedParentChainChangedRequestMessage:
-		payload := new(HoosatdMessage_NotifyVirtualSelectedParentChainChangedRequest)
+		payload := new(LingsMessage_NotifyVirtualSelectedParentChainChangedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualSelectedParentChainChangedResponseMessage:
-		payload := new(HoosatdMessage_NotifyVirtualSelectedParentChainChangedResponse)
+		payload := new(LingsMessage_NotifyVirtualSelectedParentChainChangedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.VirtualSelectedParentChainChangedNotificationMessage:
-		payload := new(HoosatdMessage_VirtualSelectedParentChainChangedNotification)
+		payload := new(LingsMessage_VirtualSelectedParentChainChangedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockRequestMessage:
-		payload := new(HoosatdMessage_GetBlockRequest)
+		payload := new(LingsMessage_GetBlockRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockResponseMessage:
-		payload := new(HoosatdMessage_GetBlockResponse)
+		payload := new(LingsMessage_GetBlockResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetSubnetworkRequestMessage:
-		payload := new(HoosatdMessage_GetSubnetworkRequest)
+		payload := new(LingsMessage_GetSubnetworkRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetSubnetworkResponseMessage:
-		payload := new(HoosatdMessage_GetSubnetworkResponse)
+		payload := new(LingsMessage_GetSubnetworkResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetVirtualSelectedParentChainFromBlockRequestMessage:
-		payload := new(HoosatdMessage_GetVirtualSelectedParentChainFromBlockRequest)
+		payload := new(LingsMessage_GetVirtualSelectedParentChainFromBlockRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetVirtualSelectedParentChainFromBlockResponseMessage:
-		payload := new(HoosatdMessage_GetVirtualSelectedParentChainFromBlockResponse)
+		payload := new(LingsMessage_GetVirtualSelectedParentChainFromBlockResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlocksRequestMessage:
-		payload := new(HoosatdMessage_GetBlocksRequest)
+		payload := new(LingsMessage_GetBlocksRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlocksResponseMessage:
-		payload := new(HoosatdMessage_GetBlocksResponse)
+		payload := new(LingsMessage_GetBlocksResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockCountRequestMessage:
-		payload := new(HoosatdMessage_GetBlockCountRequest)
+		payload := new(LingsMessage_GetBlockCountRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockCountResponseMessage:
-		payload := new(HoosatdMessage_GetBlockCountResponse)
+		payload := new(LingsMessage_GetBlockCountResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockDAGInfoRequestMessage:
-		payload := new(HoosatdMessage_GetBlockDagInfoRequest)
+		payload := new(LingsMessage_GetBlockDagInfoRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBlockDAGInfoResponseMessage:
-		payload := new(HoosatdMessage_GetBlockDagInfoResponse)
+		payload := new(LingsMessage_GetBlockDagInfoResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.ResolveFinalityConflictRequestMessage:
-		payload := new(HoosatdMessage_ResolveFinalityConflictRequest)
+		payload := new(LingsMessage_ResolveFinalityConflictRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.ResolveFinalityConflictResponseMessage:
-		payload := new(HoosatdMessage_ResolveFinalityConflictResponse)
+		payload := new(LingsMessage_ResolveFinalityConflictResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyFinalityConflictsRequestMessage:
-		payload := new(HoosatdMessage_NotifyFinalityConflictsRequest)
+		payload := new(LingsMessage_NotifyFinalityConflictsRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyFinalityConflictsResponseMessage:
-		payload := new(HoosatdMessage_NotifyFinalityConflictsResponse)
+		payload := new(LingsMessage_NotifyFinalityConflictsResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.FinalityConflictNotificationMessage:
-		payload := new(HoosatdMessage_FinalityConflictNotification)
+		payload := new(LingsMessage_FinalityConflictNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.FinalityConflictResolvedNotificationMessage:
-		payload := new(HoosatdMessage_FinalityConflictResolvedNotification)
+		payload := new(LingsMessage_FinalityConflictResolvedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntriesRequestMessage:
-		payload := new(HoosatdMessage_GetMempoolEntriesRequest)
+		payload := new(LingsMessage_GetMempoolEntriesRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntriesResponseMessage:
-		payload := new(HoosatdMessage_GetMempoolEntriesResponse)
+		payload := new(LingsMessage_GetMempoolEntriesResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.ShutDownRequestMessage:
-		payload := new(HoosatdMessage_ShutDownRequest)
+		payload := new(LingsMessage_ShutDownRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.ShutDownResponseMessage:
-		payload := new(HoosatdMessage_ShutDownResponse)
+		payload := new(LingsMessage_ShutDownResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetHeadersRequestMessage:
-		payload := new(HoosatdMessage_GetHeadersRequest)
+		payload := new(LingsMessage_GetHeadersRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetHeadersResponseMessage:
-		payload := new(HoosatdMessage_GetHeadersResponse)
+		payload := new(LingsMessage_GetHeadersResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyUTXOsChangedRequestMessage:
-		payload := new(HoosatdMessage_NotifyUtxosChangedRequest)
+		payload := new(LingsMessage_NotifyUtxosChangedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyUTXOsChangedResponseMessage:
-		payload := new(HoosatdMessage_NotifyUtxosChangedResponse)
+		payload := new(LingsMessage_NotifyUtxosChangedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.UTXOsChangedNotificationMessage:
-		payload := new(HoosatdMessage_UtxosChangedNotification)
+		payload := new(LingsMessage_UtxosChangedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.StopNotifyingUTXOsChangedRequestMessage:
-		payload := new(HoosatdMessage_StopNotifyingUtxosChangedRequest)
+		payload := new(LingsMessage_StopNotifyingUtxosChangedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.StopNotifyingUTXOsChangedResponseMessage:
-		payload := new(HoosatdMessage_StopNotifyingUtxosChangedResponse)
+		payload := new(LingsMessage_StopNotifyingUtxosChangedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetUTXOsByAddressesRequestMessage:
-		payload := new(HoosatdMessage_GetUtxosByAddressesRequest)
+		payload := new(LingsMessage_GetUtxosByAddressesRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetUTXOsByAddressesResponseMessage:
-		payload := new(HoosatdMessage_GetUtxosByAddressesResponse)
+		payload := new(LingsMessage_GetUtxosByAddressesResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBalanceByAddressRequestMessage:
-		payload := new(HoosatdMessage_GetBalanceByAddressRequest)
+		payload := new(LingsMessage_GetBalanceByAddressRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBalanceByAddressResponseMessage:
-		payload := new(HoosatdMessage_GetBalanceByAddressResponse)
+		payload := new(LingsMessage_GetBalanceByAddressResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetVirtualSelectedParentBlueScoreRequestMessage:
-		payload := new(HoosatdMessage_GetVirtualSelectedParentBlueScoreRequest)
+		payload := new(LingsMessage_GetVirtualSelectedParentBlueScoreRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetVirtualSelectedParentBlueScoreResponseMessage:
-		payload := new(HoosatdMessage_GetVirtualSelectedParentBlueScoreResponse)
+		payload := new(LingsMessage_GetVirtualSelectedParentBlueScoreResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage:
-		payload := new(HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest)
+		payload := new(LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage:
-		payload := new(HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse)
+		payload := new(LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.VirtualSelectedParentBlueScoreChangedNotificationMessage:
-		payload := new(HoosatdMessage_VirtualSelectedParentBlueScoreChangedNotification)
+		payload := new(LingsMessage_VirtualSelectedParentBlueScoreChangedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.BanRequestMessage:
-		payload := new(HoosatdMessage_BanRequest)
+		payload := new(LingsMessage_BanRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.BanResponseMessage:
-		payload := new(HoosatdMessage_BanResponse)
+		payload := new(LingsMessage_BanResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.UnbanRequestMessage:
-		payload := new(HoosatdMessage_UnbanRequest)
+		payload := new(LingsMessage_UnbanRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.UnbanResponseMessage:
-		payload := new(HoosatdMessage_UnbanResponse)
+		payload := new(LingsMessage_UnbanResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetInfoRequestMessage:
-		payload := new(HoosatdMessage_GetInfoRequest)
+		payload := new(LingsMessage_GetInfoRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetInfoResponseMessage:
-		payload := new(HoosatdMessage_GetInfoResponse)
+		payload := new(LingsMessage_GetInfoResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyPruningPointUTXOSetOverrideRequestMessage:
-		payload := new(HoosatdMessage_NotifyPruningPointUTXOSetOverrideRequest)
+		payload := new(LingsMessage_NotifyPruningPointUTXOSetOverrideRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyPruningPointUTXOSetOverrideResponseMessage:
-		payload := new(HoosatdMessage_NotifyPruningPointUTXOSetOverrideResponse)
+		payload := new(LingsMessage_NotifyPruningPointUTXOSetOverrideResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.PruningPointUTXOSetOverrideNotificationMessage:
-		payload := new(HoosatdMessage_PruningPointUTXOSetOverrideNotification)
+		payload := new(LingsMessage_PruningPointUTXOSetOverrideNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.StopNotifyingPruningPointUTXOSetOverrideRequestMessage:
-		payload := new(HoosatdMessage_StopNotifyingPruningPointUTXOSetOverrideRequest)
+		payload := new(LingsMessage_StopNotifyingPruningPointUTXOSetOverrideRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.EstimateNetworkHashesPerSecondRequestMessage:
-		payload := new(HoosatdMessage_EstimateNetworkHashesPerSecondRequest)
+		payload := new(LingsMessage_EstimateNetworkHashesPerSecondRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.EstimateNetworkHashesPerSecondResponseMessage:
-		payload := new(HoosatdMessage_EstimateNetworkHashesPerSecondResponse)
+		payload := new(LingsMessage_EstimateNetworkHashesPerSecondResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualDaaScoreChangedRequestMessage:
-		payload := new(HoosatdMessage_NotifyVirtualDaaScoreChangedRequest)
+		payload := new(LingsMessage_NotifyVirtualDaaScoreChangedRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyVirtualDaaScoreChangedResponseMessage:
-		payload := new(HoosatdMessage_NotifyVirtualDaaScoreChangedResponse)
+		payload := new(LingsMessage_NotifyVirtualDaaScoreChangedResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.VirtualDaaScoreChangedNotificationMessage:
-		payload := new(HoosatdMessage_VirtualDaaScoreChangedNotification)
+		payload := new(LingsMessage_VirtualDaaScoreChangedNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBalancesByAddressesRequestMessage:
-		payload := new(HoosatdMessage_GetBalancesByAddressesRequest)
+		payload := new(LingsMessage_GetBalancesByAddressesRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetBalancesByAddressesResponseMessage:
-		payload := new(HoosatdMessage_GetBalancesByAddressesResponse)
+		payload := new(LingsMessage_GetBalancesByAddressesResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyNewBlockTemplateRequestMessage:
-		payload := new(HoosatdMessage_NotifyNewBlockTemplateRequest)
+		payload := new(LingsMessage_NotifyNewBlockTemplateRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NotifyNewBlockTemplateResponseMessage:
-		payload := new(HoosatdMessage_NotifyNewBlockTemplateResponse)
+		payload := new(LingsMessage_NotifyNewBlockTemplateResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.NewBlockTemplateNotificationMessage:
-		payload := new(HoosatdMessage_NewBlockTemplateNotification)
+		payload := new(LingsMessage_NewBlockTemplateNotification)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntriesByAddressesRequestMessage:
-		payload := new(HoosatdMessage_GetMempoolEntriesByAddressesRequest)
+		payload := new(LingsMessage_GetMempoolEntriesByAddressesRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetMempoolEntriesByAddressesResponseMessage:
-		payload := new(HoosatdMessage_GetMempoolEntriesByAddressesResponse)
+		payload := new(LingsMessage_GetMempoolEntriesByAddressesResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetCoinSupplyRequestMessage:
-		payload := new(HoosatdMessage_GetCoinSupplyRequest)
+		payload := new(LingsMessage_GetCoinSupplyRequest)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err
 		}
 		return payload, nil
 	case *appmessage.GetCoinSupplyResponseMessage:
-		payload := new(HoosatdMessage_GetCoinSupplyResponse)
+		payload := new(LingsMessage_GetCoinSupplyResponse)
 		err := payload.fromAppMessage(message)
 		if err != nil {
 			return nil, err

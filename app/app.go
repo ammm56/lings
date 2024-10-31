@@ -33,7 +33,7 @@ var desiredLimits = &limits.DesiredLimits{
 var serviceDescription = &winservice.ServiceDescription{
 	Name:        "lingssvc",
 	DisplayName: "lings Service",
-	Description: "Downloads and stays synchronized with the Hoosat blockDAG and " +
+	Description: "Downloads and stays synchronized with the Lings blockDAG and " +
 		"provides DAG services to applications.",
 }
 

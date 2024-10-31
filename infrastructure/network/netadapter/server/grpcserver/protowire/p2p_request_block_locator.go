@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_RequestBlockLocator) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_RequestBlockLocator) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_RequestBlockLocator is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_RequestBlockLocator is nil")
 	}
 	return x.RequestBlockLocator.toAppMessage()
 }
@@ -29,7 +29,7 @@ func (x *RequestBlockLocatorMessage) toAppMessage() (appmessage.Message, error) 
 
 }
 
-func (x *HoosatdMessage_RequestBlockLocator) fromAppMessage(msgGetBlockLocator *appmessage.MsgRequestBlockLocator) error {
+func (x *LingsMessage_RequestBlockLocator) fromAppMessage(msgGetBlockLocator *appmessage.MsgRequestBlockLocator) error {
 	x.RequestBlockLocator = &RequestBlockLocatorMessage{
 		HighHash: domainHashToProto(msgGetBlockLocator.HighHash),
 		Limit:    msgGetBlockLocator.Limit,

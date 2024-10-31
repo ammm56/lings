@@ -1,8 +1,8 @@
-ARG HOOSATD_IMAGE
-ARG HOOSATMINER_IMAGE
+ARG Lings_IMAGE
+ARG LingsMINER_IMAGE
 
-FROM ${HOOSATD_IMAGE} as lings
-FROM ${HOOSATMINER_IMAGE} as lingsminer
+FROM ${Lings_IMAGE} as lings
+FROM ${LingsMINER_IMAGE} as lingsminer
 
 FROM golang:1.19-alpine
 

@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_Addresses) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_Addresses) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrap(errorNil, "HoosatdMessage_Addresses is nil")
+		return nil, errors.Wrap(errorNil, "LingsMessage_Addresses is nil")
 	}
 	addressList, err := x.Addresses.toAppMessage()
 	if err != nil {
@@ -38,7 +38,7 @@ func (x *AddressesMessage) toAppMessage() ([]*appmessage.NetAddress, error) {
 	return addressList, nil
 }
 
-func (x *HoosatdMessage_Addresses) fromAppMessage(msgAddresses *appmessage.MsgAddresses) error {
+func (x *LingsMessage_Addresses) fromAppMessage(msgAddresses *appmessage.MsgAddresses) error {
 	if len(msgAddresses.AddressList) > appmessage.MaxAddressesPerMsg {
 		return errors.Errorf("too many addresses for message "+
 			"[count %d, max %d]", len(msgAddresses.AddressList), appmessage.MaxAddressesPerMsg)

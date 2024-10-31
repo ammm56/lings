@@ -5,14 +5,14 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_Block) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_Block) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrap(errorNil, "HoosatdMessage_Block is nil")
+		return nil, errors.Wrap(errorNil, "LingsMessage_Block is nil")
 	}
 	return x.Block.toAppMessage()
 }
 
-func (x *HoosatdMessage_Block) fromAppMessage(msgBlock *appmessage.MsgBlock) error {
+func (x *LingsMessage_Block) fromAppMessage(msgBlock *appmessage.MsgBlock) error {
 	x.Block = new(BlockMessage)
 	return x.Block.fromAppMessage(msgBlock)
 }

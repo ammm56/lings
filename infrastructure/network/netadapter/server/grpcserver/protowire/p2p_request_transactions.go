@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_RequestTransactions) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_RequestTransactions) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_RequestTransactions is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_RequestTransactions is nil")
 	}
 	return x.RequestTransactions.toAppMessage()
 }
@@ -27,7 +27,7 @@ func (x *RequestTransactionsMessage) toAppMessage() (appmessage.Message, error) 
 	return &appmessage.MsgRequestTransactions{IDs: ids}, nil
 }
 
-func (x *HoosatdMessage_RequestTransactions) fromAppMessage(msgGetTransactions *appmessage.MsgRequestTransactions) error {
+func (x *LingsMessage_RequestTransactions) fromAppMessage(msgGetTransactions *appmessage.MsgRequestTransactions) error {
 	if len(msgGetTransactions.IDs) > appmessage.MaxInvPerRequestTransactionsMsg {
 		return errors.Errorf("too many hashes for message "+
 			"[count %d, max %d]", len(x.RequestTransactions.Ids), appmessage.MaxInvPerRequestTransactionsMsg)

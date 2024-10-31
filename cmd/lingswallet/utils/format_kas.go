@@ -15,7 +15,7 @@ import (
 func FomatHSAT(amount uint64) string {
 	res := "                   "
 	if amount > 0 {
-		res = fmt.Sprintf("%19.8f", float64(amount)/constants.SompiPerHoosat)
+		res = fmt.Sprintf("%19.8f", float64(amount)/constants.SompiPerLings)
 	}
 	return res
 }
@@ -33,11 +33,11 @@ func KasToSompi(amount string) (uint64, error) {
 	parts := strings.Split(amount, ".")
 	amountStr := ""
 
-	if constants.SompiPerHoosat%10 != 0 {
-		return 0, errors.Errorf("Unable to convert to sompi when SompiPerHoosat is not a multiple of 10")
+	if constants.SompiPerLings%10 != 0 {
+		return 0, errors.Errorf("Unable to convert to sompi when SompiPerLings is not a multiple of 10")
 	}
 
-	decimalPlaces := int(math.Log10(constants.SompiPerHoosat))
+	decimalPlaces := int(math.Log10(constants.SompiPerLings))
 	decimalStr := ""
 
 	if len(parts) == 2 {

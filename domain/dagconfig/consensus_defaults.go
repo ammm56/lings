@@ -48,9 +48,9 @@ const (
 	// (Higher values make pruning attacks easier by a constant, lower values make merging after a split or a spike
 	// in block take longer)
 	defaultMergeSetSizeLimit                       = defaultGHOSTDAGK * 10
-	defaultSubsidyGenesisReward                    = 1 * constants.SompiPerHoosat
-	defaultPreDeflationaryPhaseBaseSubsidy         = 1160 * 24 * 10 * constants.SompiPerHoosat
-	defaultDeflationaryPhaseBaseSubsidy            = 100 * constants.SompiPerHoosat
+	defaultSubsidyGenesisReward                    = 1 * constants.SompiPerLings
+	defaultPreDeflationaryPhaseBaseSubsidy         = 1160 * 24 * 10 * constants.SompiPerLings
+	defaultDeflationaryPhaseBaseSubsidy            = 100 * constants.SompiPerLings
 	defaultDeflationaryPhaseCurveFactor            = 2
 	defaultCoinbasePayloadScriptPublicKeyMaxLength = 150
 	// defaultDifficultyAdjustmentWindowSize is the number of blocks in a block's past used to calculate its difficulty

@@ -6,7 +6,7 @@ lings transaction scripts.
 
 # Script Overview
 
-Hoosat transaction scripts are written in a stack-base, FORTH-like language.
+Lings transaction scripts are written in a stack-base, FORTH-like language.
 
 The lings script language consists of a number of opcodes which fall into
 several categories such pushing and popping data to and from the stack,

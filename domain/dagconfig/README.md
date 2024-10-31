@@ -5,8 +5,8 @@ dagconfig
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/ammm56/lings/dagconfig)
 
 Package dagconfig defines DAG configuration parameters for the standard
-Hoosatd networks and provides the ability for callers to define their own custom
-Hoosatd networks.
+Lings networks and provides the ability for callers to define their own custom
+Lings networks.
 
 ## Sample Use
 
@@ -22,7 +22,7 @@ import (
 	"github.com/ammm56/lings/domain/dagconfig"
 )
 
-var testnet = flag.Bool("testnet", false, "operate on the testnet Hoosat network")
+var testnet = flag.Bool("testnet", false, "operate on the testnet Lings network")
 
 // By default (without --testnet), use mainnet.
 var dagParams = &dagconfig.MainnetParams

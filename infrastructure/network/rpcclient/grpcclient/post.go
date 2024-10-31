@@ -12,7 +12,7 @@ import (
 // that arrives back, and returns the response as JSON
 func (c *GRPCClient) PostJSON(requestJSON string) (string, error) {
 	requestBytes := []byte(requestJSON)
-	var parsedRequest protowire.HoosatdMessage
+	var parsedRequest protowire.LingsMessage
 	err := protojson.Unmarshal(requestBytes, &parsedRequest)
 	if err != nil {
 		return "", errors.Wrapf(err, "error parsing the request")
@@ -51,7 +51,7 @@ func (c *GRPCClient) PostAppMessage(requestAppMessage appmessage.Message) (appme
 // Post is a helper function that sends the given request to the
 // RPC server, accepts the first response that arrives back, and
 // returns the response
-func (c *GRPCClient) Post(request *protowire.HoosatdMessage) (*protowire.HoosatdMessage, error) {
+func (c *GRPCClient) Post(request *protowire.LingsMessage) (*protowire.LingsMessage, error) {
 	err := c.stream.Send(request)
 	if err != nil {
 		return nil, errors.Wrapf(err, "error sending the request to the RPC server")

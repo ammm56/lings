@@ -1,9 +1,9 @@
 // RPC-related types. Request messages, response messages, and dependant types.
 //
-// Clients are expected to build RequestMessages and wrap them in HoosatdMessage. (see messages.proto)
+// Clients are expected to build RequestMessages and wrap them in LingsMessage. (see messages.proto)
 //
-// Having received a RequestMessage, (wrapped in a HoosatdMessage) the RPC server will respond with a
-// ResponseMessage (likewise wrapped in a HoosatdMessage) respective to the original RequestMessage.
+// Having received a RequestMessage, (wrapped in a LingsMessage) the RPC server will respond with a
+// ResponseMessage (likewise wrapped in a LingsMessage) respective to the original RequestMessage.
 //
 // **IMPORTANT:** This API is a work in progress and is subject to break between versions.
 //

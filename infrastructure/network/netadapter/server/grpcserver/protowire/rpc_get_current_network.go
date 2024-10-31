@@ -5,22 +5,22 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetCurrentNetworkRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetCurrentNetworkRequest) toAppMessage() (appmessage.Message, error) {
 	return &appmessage.GetCurrentNetworkRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_GetCurrentNetworkRequest) fromAppMessage(_ *appmessage.GetCurrentNetworkRequestMessage) error {
+func (x *LingsMessage_GetCurrentNetworkRequest) fromAppMessage(_ *appmessage.GetCurrentNetworkRequestMessage) error {
 	return nil
 }
 
-func (x *HoosatdMessage_GetCurrentNetworkResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetCurrentNetworkResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetCurrentNetworkResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetCurrentNetworkResponse is nil")
 	}
 	return x.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetCurrentNetworkResponse) fromAppMessage(message *appmessage.GetCurrentNetworkResponseMessage) error {
+func (x *LingsMessage_GetCurrentNetworkResponse) fromAppMessage(message *appmessage.GetCurrentNetworkResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}

@@ -9,38 +9,38 @@ import (
 )
 
 var commandTypes = []reflect.Type{
-	reflect.TypeOf(protowire.HoosatdMessage_AddPeerRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetConnectedPeerInfoRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetPeerAddressesRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetCurrentNetworkRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetInfoRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_AddPeerRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetConnectedPeerInfoRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetPeerAddressesRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetCurrentNetworkRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetInfoRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_GetBlockRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetBlocksRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetHeadersRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetBlockCountRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetBlockDagInfoRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetSelectedTipHashRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetVirtualSelectedParentBlueScoreRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetVirtualSelectedParentChainFromBlockRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_ResolveFinalityConflictRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_EstimateNetworkHashesPerSecondRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBlockRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBlocksRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetHeadersRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBlockCountRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBlockDagInfoRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetSelectedTipHashRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetVirtualSelectedParentBlueScoreRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetVirtualSelectedParentChainFromBlockRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_ResolveFinalityConflictRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_EstimateNetworkHashesPerSecondRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_GetBlockTemplateRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_SubmitBlockRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBlockTemplateRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_SubmitBlockRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_GetMempoolEntryRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetMempoolEntriesRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetMempoolEntriesByAddressesRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetMempoolEntryRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetMempoolEntriesRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetMempoolEntriesByAddressesRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_SubmitTransactionRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_SubmitTransactionRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_GetUtxosByAddressesRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetBalanceByAddressRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_GetCoinSupplyRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetUtxosByAddressesRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetBalanceByAddressRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_GetCoinSupplyRequest{}),
 
-	reflect.TypeOf(protowire.HoosatdMessage_BanRequest{}),
-	reflect.TypeOf(protowire.HoosatdMessage_UnbanRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_BanRequest{}),
+	reflect.TypeOf(protowire.LingsMessage_UnbanRequest{}),
 }
 
 type commandDescription struct {

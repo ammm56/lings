@@ -33,16 +33,16 @@ func TestServiceFlagStringer(t *testing.T) {
 	}
 }
 
-// TestHoosatNetStringer tests the stringized output for lings net types.
-func TestHoosatNetStringer(t *testing.T) {
+// TestLingsNetStringer tests the stringized output for lings net types.
+func TestLingsNetStringer(t *testing.T) {
 	tests := []struct {
-		in   HoosatNet
+		in   LingsNet
 		want string
 	}{
 		{Mainnet, "Mainnet"},
 		{Testnet, "Testnet"},
 		{Simnet, "Simnet"},
-		{0xffffffff, "Unknown HoosatNet (4294967295)"},
+		{0xffffffff, "Unknown LingsNet (4294967295)"},
 	}
 
 	t.Logf("Running %d tests", len(tests))

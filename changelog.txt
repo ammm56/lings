@@ -33,7 +33,7 @@ LINGS v1.0.1 - 2024-09-3
 LINGS v1.0.0 - 2024-08-31
 ===========================
 
-For the love of Kaspa and GhostDAG, we are here to bring you FPGA / ASIC resistant algorithm in Hoosat Network. 
+For the love of Kaspa and GhostDAG, we are here to bring you FPGA / ASIC resistant algorithm in Lings Network. 
 
 * Hoohash implementation
 * Developer fee addition

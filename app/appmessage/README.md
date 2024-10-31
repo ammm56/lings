@@ -7,7 +7,7 @@ wire
 
 Package wire implements the lings wire protocol.
 
-## Hoosat Message Overview
+## Lings Message Overview
 
 The lings protocol consists of exchanging messages between peers. Each message
 is preceded by a header which identifies information about it such as which

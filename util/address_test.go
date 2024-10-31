@@ -35,7 +35,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lings:qr35ennsep3hxfe7lnz5ee7j5jgmkjswsn35ennsep3hxfe7ln35cdv0dy335",
 			valid:   true,
 			result: util.TstAddressPubKey(
-				util.Bech32PrefixHoosat,
+				util.Bech32PrefixLings,
 				[util.PublicKeySize]byte{
 					0xe3, 0x4c, 0xce, 0x70, 0xc8, 0x63, 0x73, 0x27, 0x3e, 0xfc,
 					0xc5, 0x4c, 0xe7, 0xd2, 0xa4, 0x91, 0xbb, 0x4a, 0x0e, 0x84,
@@ -48,10 +48,10 @@ func TestAddresses(t *testing.T) {
 					0xc5, 0x4c, 0xe7, 0xd2, 0xa4, 0x91, 0xbb, 0x4a, 0x0e, 0x84,
 					0xe3, 0x4c, 0xce, 0x70, 0xc8, 0x63, 0x73, 0x27, 0x3e, 0xfc,
 					0xe3, 0x4c}
-				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixHoosat)
+				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixLings)
 			},
 			passedPrefix:   util.Bech32PrefixUnknown,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 		{
 			name:    "mainnet p2pk 2",
@@ -59,7 +59,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lings:qq80qvqs0lfxuzmt7sz3909ze6camq9d4t35ennsep3hxfe7ln35cvfqgz3z8",
 			valid:   true,
 			result: util.TstAddressPubKey(
-				util.Bech32PrefixHoosat,
+				util.Bech32PrefixLings,
 				[util.PublicKeySize]byte{
 					0x0e, 0xf0, 0x30, 0x10, 0x7f, 0xd2, 0x6e, 0x0b, 0x6b, 0xf4,
 					0x05, 0x12, 0xbc, 0xa2, 0xce, 0xb1, 0xdd, 0x80, 0xad, 0xaa,
@@ -73,10 +73,10 @@ func TestAddresses(t *testing.T) {
 					0xe3, 0x4c, 0xce, 0x70, 0xc8, 0x63, 0x73, 0x27, 0x3e, 0xfc,
 					0xe3, 0x4c,
 				}
-				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixHoosat)
+				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixLings)
 			},
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 		{
 			name:    "testnet p2pk",
@@ -84,7 +84,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lingstest:qputx94qseratdmjs0j395mq8u03er0x3l35ennsep3hxfe7ln35ckquw528z",
 			valid:   true,
 			result: util.TstAddressPubKey(
-				util.Bech32PrefixHoosatTest,
+				util.Bech32PrefixLingsTest,
 				[util.PublicKeySize]byte{
 					0x78, 0xb3, 0x16, 0xa0, 0x86, 0x47, 0xd5, 0xb7, 0x72, 0x83,
 					0xe5, 0x12, 0xd3, 0x60, 0x3f, 0x1f, 0x1c, 0x8d, 0xe6, 0x8f,
@@ -98,10 +98,10 @@ func TestAddresses(t *testing.T) {
 					0xe3, 0x4c, 0xce, 0x70, 0xc8, 0x63, 0x73, 0x27, 0x3e, 0xfc,
 					0xe3, 0x4c,
 				}
-				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixHoosatTest)
+				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixLingsTest)
 			},
-			passedPrefix:   util.Bech32PrefixHoosatTest,
-			expectedPrefix: util.Bech32PrefixHoosatTest,
+			passedPrefix:   util.Bech32PrefixLingsTest,
+			expectedPrefix: util.Bech32PrefixLingsTest,
 		},
 
 		// ECDSA P2PK tests.
@@ -111,7 +111,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lings:qyp0r5mcq4rd5grj3652ra09u5dcgwqq9ntuswp247nama5quyj40eq03sc2dkx",
 			valid:   true,
 			result: util.TstAddressPubKeyECDSA(
-				util.Bech32PrefixHoosat,
+				util.Bech32PrefixLings,
 				[util.PublicKeySizeECDSA]byte{
 					0x02, 0xf1, 0xd3, 0x78, 0x05, 0x46, 0xda, 0x20, 0x72, 0x8e, 0xa8, 0xa1, 0xf5, 0xe5, 0xe5, 0x1b, 0x84, 0x38, 0x00, 0x2c, 0xd7, 0xc8, 0x38, 0x2a, 0xaf, 0xa7, 0xdd, 0xf6, 0x80, 0xe1, 0x25, 0x57, 0xe4,
 				}),
@@ -119,10 +119,10 @@ func TestAddresses(t *testing.T) {
 				publicKey := []byte{
 					0x02, 0xf1, 0xd3, 0x78, 0x05, 0x46, 0xda, 0x20, 0x72, 0x8e, 0xa8, 0xa1, 0xf5, 0xe5, 0xe5, 0x1b, 0x84, 0x38, 0x00, 0x2c, 0xd7, 0xc8, 0x38, 0x2a, 0xaf, 0xa7, 0xdd, 0xf6, 0x80, 0xe1, 0x25, 0x57, 0xe4,
 				}
-				return util.NewAddressPublicKeyECDSA(publicKey, util.Bech32PrefixHoosat)
+				return util.NewAddressPublicKeyECDSA(publicKey, util.Bech32PrefixLings)
 			},
 			passedPrefix:   util.Bech32PrefixUnknown,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 
 		// Negative P2PK tests.
@@ -135,17 +135,17 @@ func TestAddresses(t *testing.T) {
 					0x00, 0x0e, 0xf0, 0x30, 0x10, 0x7f, 0xd2, 0x6e, 0x0b, 0x6b,
 					0xf4, 0x05, 0x12, 0xbc, 0xa2, 0xce, 0xb1, 0xdd, 0x80, 0xad,
 					0xaa}
-				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixHoosat)
+				return util.NewAddressPublicKey(publicKey, util.Bech32PrefixLings)
 			},
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 		{
 			name:           "p2pk bad checksum",
 			addr:           "lings:qr35ennsep3hxfe7lnz5ee7j5jgmkjswss74as46gx",
 			valid:          false,
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 
 		// Positive P2SH tests.
@@ -155,7 +155,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lings:prq20q4qd9ulr044cauyy9wtpeupqpjv67pn2vyc6acly7xqkrjdzmh8rj9f4",
 			valid:   true,
 			result: util.TstAddressScriptHash(
-				util.Bech32PrefixHoosat,
+				util.Bech32PrefixLings,
 				[blake2b.Size256]byte{
 					0xc0, 0xa7, 0x82, 0xa0, 0x69, 0x79, 0xf1, 0xbe,
 					0xb5, 0xc7, 0x78, 0x42, 0x15, 0xcb, 0x0e, 0x78,
@@ -185,10 +185,10 @@ func TestAddresses(t *testing.T) {
 					0xdb, 0xfb, 0x1e, 0x75, 0x4e, 0x35, 0xfa, 0x1c, 0x78, 0x44,
 					0xc4, 0x1f, 0x32, 0x2a, 0x18, 0x63, 0xd4, 0x62, 0x13, 0x53,
 					0xae}
-				return util.NewAddressScriptHash(script, util.Bech32PrefixHoosat)
+				return util.NewAddressScriptHash(script, util.Bech32PrefixLings)
 			},
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 		{
 			name:    "mainnet p2sh 2",
@@ -196,7 +196,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lings:pr5vxqxg0xrwl2zvxlq9rxffqx00sm44kn5vxqxg0xrwl2zvxl5vxyhvsake2",
 			valid:   true,
 			result: util.TstAddressScriptHash(
-				util.Bech32PrefixHoosat,
+				util.Bech32PrefixLings,
 				[blake2b.Size256]byte{
 					0xe8, 0xc3, 0x00, 0xc8, 0x79, 0x86, 0xef, 0xa8, 0x4c, 0x37,
 					0xc0, 0x51, 0x99, 0x29, 0x01, 0x9e, 0xf8, 0x6e, 0xb5, 0xb4,
@@ -210,10 +210,10 @@ func TestAddresses(t *testing.T) {
 					0xe8, 0xc3, 0x00, 0xc8, 0x79, 0x86, 0xef, 0xa8, 0x4c, 0x37,
 					0xe8, 0xc3,
 				}
-				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixHoosat)
+				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixLings)
 			},
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 		{
 			name:    "testnet p2sh",
@@ -221,7 +221,7 @@ func TestAddresses(t *testing.T) {
 			encoded: "lingstest:przhjdpv93xfygpqtckdc2zkzuzqeyj2pt5vxqxg0xrwl2zvxl5vx35yyy2h9",
 			valid:   true,
 			result: util.TstAddressScriptHash(
-				util.Bech32PrefixHoosatTest,
+				util.Bech32PrefixLingsTest,
 				[blake2b.Size256]byte{
 					0xc5, 0x79, 0x34, 0x2c, 0x2c, 0x4c, 0x92, 0x20, 0x20, 0x5e,
 					0x2c, 0xdc, 0x28, 0x56, 0x17, 0x04, 0x0c, 0x92, 0x4a, 0x0a,
@@ -235,10 +235,10 @@ func TestAddresses(t *testing.T) {
 					0xe8, 0xc3, 0x00, 0xc8, 0x79, 0x86, 0xef, 0xa8, 0x4c, 0x37,
 					0xe8, 0xc3,
 				}
-				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixHoosatTest)
+				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixLingsTest)
 			},
-			passedPrefix:   util.Bech32PrefixHoosatTest,
-			expectedPrefix: util.Bech32PrefixHoosatTest,
+			passedPrefix:   util.Bech32PrefixLingsTest,
+			expectedPrefix: util.Bech32PrefixLingsTest,
 		},
 
 		// Negative P2SH tests.
@@ -251,10 +251,10 @@ func TestAddresses(t *testing.T) {
 					0x00, 0xf8, 0x15, 0xb0, 0x36, 0xd9, 0xbb, 0xbc, 0xe5, 0xe9,
 					0xf2, 0xa0, 0x0a, 0xbd, 0x1b, 0xf3, 0xdc, 0x91, 0xe9, 0x55,
 					0x10}
-				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixHoosat)
+				return util.NewAddressScriptHashFromHash(hash, util.Bech32PrefixLings)
 			},
-			passedPrefix:   util.Bech32PrefixHoosat,
-			expectedPrefix: util.Bech32PrefixHoosat,
+			passedPrefix:   util.Bech32PrefixLings,
+			expectedPrefix: util.Bech32PrefixLings,
 		},
 	}
 
@@ -385,17 +385,17 @@ func TestDecodeAddressErrorConditions(t *testing.T) {
 		},
 		{
 			"lingssim:raskzctpv9skzctpv9skzctpv9skzctpvy37ct7zafpv9skzctpvymmnd3gh8",
-			util.Bech32PrefixHoosatSim,
+			util.Bech32PrefixLingsSim,
 			"unknown address type",
 		},
 		{
 			"lingssim:raskzcg58mth0an",
-			util.Bech32PrefixHoosatSim,
+			util.Bech32PrefixLingsSim,
 			"unknown address type",
 		},
 		{
 			"lingstest:qqq65mvpxcmajeq44n2n8vfn6u9f8l4zsy0xez0tzw",
-			util.Bech32PrefixHoosat,
+			util.Bech32PrefixLings,
 			"decoded address is of wrong network",
 		},
 	}
@@ -417,9 +417,9 @@ func TestParsePrefix(t *testing.T) {
 		expectedPrefix util.Bech32Prefix
 		expectedError  bool
 	}{
-		{"lings", util.Bech32PrefixHoosat, false},
-		{"lingstest", util.Bech32PrefixHoosatTest, false},
-		{"lingssim", util.Bech32PrefixHoosatSim, false},
+		{"lings", util.Bech32PrefixLings, false},
+		{"lingstest", util.Bech32PrefixLingsTest, false},
+		{"lingssim", util.Bech32PrefixLingsSim, false},
 		{"blabla", util.Bech32PrefixUnknown, true},
 		{"unknown", util.Bech32PrefixUnknown, true},
 		{"", util.Bech32PrefixUnknown, true},
@@ -444,9 +444,9 @@ func TestPrefixToString(t *testing.T) {
 		prefix            util.Bech32Prefix
 		expectedPrefixStr string
 	}{
-		{util.Bech32PrefixHoosat, "lings"},
-		{util.Bech32PrefixHoosatTest, "lingstest"},
-		{util.Bech32PrefixHoosatSim, "lingssim"},
+		{util.Bech32PrefixLings, "lings"},
+		{util.Bech32PrefixLingsTest, "lingstest"},
+		{util.Bech32PrefixLingsSim, "lingssim"},
 		{util.Bech32PrefixUnknown, ""},
 	}
 
@@ -462,14 +462,14 @@ func TestPrefixToString(t *testing.T) {
 
 // createBurnAddress generates a burn address using a predefined identifier.
 func TestCreateBurnAddress(t *testing.T) {
-	identifier := "HOOSAT_NETWORK_BURN_TOKEN_2024"
+	identifier := "Lings_NETWORK_BURN_TOKEN_2024"
 	hasher, err := blake2b.New256(nil)
 	if err != nil {
 		t.Errorf("Failed to create hash: %v", err)
 	}
 	hasher.Write([]byte(identifier))
 	hashed := hasher.Sum(nil)
-	prefix := util.Bech32PrefixHoosat
+	prefix := util.Bech32PrefixLings
 	address := bech32.Encode(prefix.String(), hashed, 0)
 	t.Errorf("%s", address)
 }

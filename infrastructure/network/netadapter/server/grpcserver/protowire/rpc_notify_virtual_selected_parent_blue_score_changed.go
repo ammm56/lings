@@ -5,26 +5,26 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest is nil")
 	}
 	return &appmessage.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage{}, nil
 }
 
-func (x *HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest) fromAppMessage(_ *appmessage.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage) error {
+func (x *LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedRequest) fromAppMessage(_ *appmessage.NotifyVirtualSelectedParentBlueScoreChangedRequestMessage) error {
 	x.NotifyVirtualSelectedParentBlueScoreChangedRequest = &NotifyVirtualSelectedParentBlueScoreChangedRequestMessage{}
 	return nil
 }
 
-func (x *HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse is nil")
 	}
 	return x.NotifyVirtualSelectedParentBlueScoreChangedResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse) fromAppMessage(message *appmessage.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage) error {
+func (x *LingsMessage_NotifyVirtualSelectedParentBlueScoreChangedResponse) fromAppMessage(message *appmessage.NotifyVirtualSelectedParentBlueScoreChangedResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}
@@ -49,14 +49,14 @@ func (x *NotifyVirtualSelectedParentBlueScoreChangedResponseMessage) toAppMessag
 	}, nil
 }
 
-func (x *HoosatdMessage_VirtualSelectedParentBlueScoreChangedNotification) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_VirtualSelectedParentBlueScoreChangedNotification) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_VirtualSelectedParentBlueScoreChangedNotification is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_VirtualSelectedParentBlueScoreChangedNotification is nil")
 	}
 	return x.VirtualSelectedParentBlueScoreChangedNotification.toAppMessage()
 }
 
-func (x *HoosatdMessage_VirtualSelectedParentBlueScoreChangedNotification) fromAppMessage(message *appmessage.VirtualSelectedParentBlueScoreChangedNotificationMessage) error {
+func (x *LingsMessage_VirtualSelectedParentBlueScoreChangedNotification) fromAppMessage(message *appmessage.VirtualSelectedParentBlueScoreChangedNotificationMessage) error {
 	x.VirtualSelectedParentBlueScoreChangedNotification = &VirtualSelectedParentBlueScoreChangedNotificationMessage{
 		VirtualSelectedParentBlueScore: message.VirtualSelectedParentBlueScore,
 	}

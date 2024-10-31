@@ -37,7 +37,7 @@ type configFlags struct {
 }
 
 type createConfig struct {
-	KeysFile          string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Hoosatwallet\\key.json (Windows))"`
+	KeysFile          string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Lingswallet\\key.json (Windows))"`
 	Password          string `long:"password" short:"p" description:"Wallet password"`
 	Yes               bool   `long:"yes" short:"y" description:"Assume \"yes\" to all questions"`
 	MinimumSignatures uint32 `long:"min-signatures" short:"m" description:"Minimum required signatures" default:"1"`
@@ -55,13 +55,13 @@ type balanceConfig struct {
 }
 
 type sendConfig struct {
-	KeysFile                 string   `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Hoosatwallet\\key.json (Windows))"`
+	KeysFile                 string   `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Lingswallet\\key.json (Windows))"`
 	Password                 string   `long:"password" short:"p" description:"Wallet password"`
 	DaemonAddress            string   `long:"daemonaddress" short:"d" description:"Wallet daemon server to connect to"`
-	ToAddress                string   `long:"to-address" short:"t" description:"The public address to send Hoosat to" required:"true"`
-	FromAddresses            []string `long:"from-address" short:"a" description:"Specific public address to send Hoosat from. Repeat multiple times (adding -a before each) to accept several addresses" required:"false"`
-	SendAmount               string   `long:"send-amount" short:"v" description:"An amount to send in Hoosat (e.g. 1234.12345678)"`
-	IsSendAll                bool     `long:"send-all" description:"Send all the Hoosat in the wallet (mutually exclusive with --send-amount). If --from-address was used, will send all only from the specified addresses."`
+	ToAddress                string   `long:"to-address" short:"t" description:"The public address to send Lings to" required:"true"`
+	FromAddresses            []string `long:"from-address" short:"a" description:"Specific public address to send Lings from. Repeat multiple times (adding -a before each) to accept several addresses" required:"false"`
+	SendAmount               string   `long:"send-amount" short:"v" description:"An amount to send in Lings (e.g. 1234.12345678)"`
+	IsSendAll                bool     `long:"send-all" description:"Send all the Lings in the wallet (mutually exclusive with --send-amount). If --from-address was used, will send all only from the specified addresses."`
 	UseExistingChangeAddress bool     `long:"use-existing-change-address" short:"u" description:"Will use an existing change address (in case no change address was ever used, it will use a new one)"`
 	Verbose                  bool     `long:"show-serialized" short:"s" description:"Show a list of hex encoded sent transactions"`
 	config.NetworkFlags
@@ -75,16 +75,16 @@ type sweepConfig struct {
 
 type createUnsignedTransactionConfig struct {
 	DaemonAddress            string   `long:"daemonaddress" short:"d" description:"Wallet daemon server to connect to"`
-	ToAddress                string   `long:"to-address" short:"t" description:"The public address to send Hoosat to" required:"true"`
-	FromAddresses            []string `long:"from-address" short:"a" description:"Specific public address to send Hoosat from. Use multiple times to accept several addresses" required:"false"`
-	SendAmount               string   `long:"send-amount" short:"v" description:"An amount to send in Hoosat (e.g. 1234.12345678)"`
-	IsSendAll                bool     `long:"send-all" description:"Send all the Hoosat in the wallet (mutually exclusive with --send-amount)"`
+	ToAddress                string   `long:"to-address" short:"t" description:"The public address to send Lings to" required:"true"`
+	FromAddresses            []string `long:"from-address" short:"a" description:"Specific public address to send Lings from. Use multiple times to accept several addresses" required:"false"`
+	SendAmount               string   `long:"send-amount" short:"v" description:"An amount to send in Lings (e.g. 1234.12345678)"`
+	IsSendAll                bool     `long:"send-all" description:"Send all the Lings in the wallet (mutually exclusive with --send-amount)"`
 	UseExistingChangeAddress bool     `long:"use-existing-change-address" short:"u" description:"Will use an existing change address (in case no change address was ever used, it will use a new one)"`
 	config.NetworkFlags
 }
 
 type signConfig struct {
-	KeysFile        string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Hoosatwallet\\key.json (Windows))"`
+	KeysFile        string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Lingswallet\\key.json (Windows))"`
 	Password        string `long:"password" short:"p" description:"Wallet password"`
 	Transaction     string `long:"transaction" short:"t" description:"The unsigned transaction(s) to sign on (encoded in hex)"`
 	TransactionFile string `long:"transaction-file" short:"F" description:"The file containing the unsigned transaction(s) to sign on (encoded in hex)"`
@@ -116,7 +116,7 @@ type newAddressConfig struct {
 }
 
 type startDaemonConfig struct {
-	KeysFile  string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Hoosatwallet\\key.json (Windows))"`
+	KeysFile  string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Lingswallet\\key.json (Windows))"`
 	Password  string `long:"password" short:"p" description:"Wallet password"`
 	RPCServer string `long:"rpcserver" short:"s" description:"RPC server to connect to"`
 	Listen    string `long:"listen" short:"l" description:"Address to listen on (default: 0.0.0.0:8082)"`
@@ -126,7 +126,7 @@ type startDaemonConfig struct {
 }
 
 type dumpUnencryptedDataConfig struct {
-	KeysFile string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Hoosatwallet\\key.json (Windows))"`
+	KeysFile string `long:"keys-file" short:"f" description:"Keys file location (default: ~/.lingswallet/keys.json (*nix), %USERPROFILE%\\AppData\\Local\\Lingswallet\\key.json (Windows))"`
 	Password string `long:"password" short:"p" description:"Wallet password"`
 	Yes      bool   `long:"yes" short:"y" description:"Assume \"yes\" to all questions"`
 	config.NetworkFlags
@@ -150,11 +150,11 @@ func parseCommandLine() (subCommand string, config interface{}) {
 
 	balanceConf := &balanceConfig{DaemonAddress: defaultListen}
 	parser.AddCommand(balanceSubCmd, "Shows the balance of a public address",
-		"Shows the balance for a public address in Hoosat", balanceConf)
+		"Shows the balance for a public address in Lings", balanceConf)
 
 	sendConf := &sendConfig{DaemonAddress: defaultListen}
-	parser.AddCommand(sendSubCmd, "Sends a Hoosat transaction to a public address",
-		"Sends a Hoosat transaction to a public address", sendConf)
+	parser.AddCommand(sendSubCmd, "Sends a Lings transaction to a public address",
+		"Sends a Lings transaction to a public address", sendConf)
 
 	sweepConf := &sweepConfig{DaemonAddress: defaultListen}
 	parser.AddCommand(sweepSubCmd, "Sends all funds associated with the given schnorr private key to a new address of the current wallet",
@@ -163,8 +163,8 @@ func parseCommandLine() (subCommand string, config interface{}) {
 			"to send funds to your main wallet.", sweepConf)
 
 	createUnsignedTransactionConf := &createUnsignedTransactionConfig{DaemonAddress: defaultListen}
-	parser.AddCommand(createUnsignedTransactionSubCmd, "Create an unsigned Hoosat transaction",
-		"Create an unsigned Hoosat transaction", createUnsignedTransactionConf)
+	parser.AddCommand(createUnsignedTransactionSubCmd, "Create an unsigned Lings transaction",
+		"Create an unsigned Lings transaction", createUnsignedTransactionConf)
 
 	signConf := &signConfig{}
 	parser.AddCommand(signSubCmd, "Sign the given partially signed transaction",

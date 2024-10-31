@@ -5,13 +5,13 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_RequestNextHeaders) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_RequestNextHeaders) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_RequestNextHeaders is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_RequestNextHeaders is nil")
 	}
 	return &appmessage.MsgRequestNextHeaders{}, nil
 }
 
-func (x *HoosatdMessage_RequestNextHeaders) fromAppMessage(_ *appmessage.MsgRequestNextHeaders) error {
+func (x *LingsMessage_RequestNextHeaders) fromAppMessage(_ *appmessage.MsgRequestNextHeaders) error {
 	return nil
 }

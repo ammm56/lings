@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_RequestAddresses) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_RequestAddresses) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_RequestAddresses is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_RequestAddresses is nil")
 	}
 	return x.RequestAddresses.toAppMessage()
 }
@@ -29,7 +29,7 @@ func (x *RequestAddressesMessage) toAppMessage() (appmessage.Message, error) {
 
 }
 
-func (x *HoosatdMessage_RequestAddresses) fromAppMessage(msgGetAddresses *appmessage.MsgRequestAddresses) error {
+func (x *LingsMessage_RequestAddresses) fromAppMessage(msgGetAddresses *appmessage.MsgRequestAddresses) error {
 	x.RequestAddresses = &RequestAddressesMessage{
 		IncludeAllSubnetworks: msgGetAddresses.IncludeAllSubnetworks,
 		SubnetworkId:          domainSubnetworkIDToProto(msgGetAddresses.SubnetworkID),

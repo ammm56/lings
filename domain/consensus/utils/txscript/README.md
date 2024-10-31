@@ -4,12 +4,12 @@ txscript
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://choosealicense.com/licenses/isc/)
 [![GoDoc](https://godoc.org/github.com/ammm56/lings/txscript?status.png)](http://godoc.org/github.com/ammm56/lings/txscript)
 
-Package txscript implements the Hoosat transaction script language. There is
+Package txscript implements the Lings transaction script language. There is
 a comprehensive test suite.
 
-## Hoosat Scripts
+## Lings Scripts
 
-Hoosat provides a stack-based, FORTH-like language for the scripts in
+Lings provides a stack-based, FORTH-like language for the scripts in
 the lings transactions. This language is not turing complete
 although it is still fairly powerful. 
 

@@ -5,14 +5,14 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetMempoolEntriesRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetMempoolEntriesRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetMempoolEntriesRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetMempoolEntriesRequest is nil")
 	}
 	return x.GetMempoolEntriesRequest.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetMempoolEntriesRequest) fromAppMessage(message *appmessage.GetMempoolEntriesRequestMessage) error {
+func (x *LingsMessage_GetMempoolEntriesRequest) fromAppMessage(message *appmessage.GetMempoolEntriesRequestMessage) error {
 	x.GetMempoolEntriesRequest = &GetMempoolEntriesRequestMessage{
 		IncludeOrphanPool:     message.IncludeOrphanPool,
 		FilterTransactionPool: message.FilterTransactionPool,
@@ -30,14 +30,14 @@ func (x *GetMempoolEntriesRequestMessage) toAppMessage() (appmessage.Message, er
 	}, nil
 }
 
-func (x *HoosatdMessage_GetMempoolEntriesResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetMempoolEntriesResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetMempoolEntriesResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetMempoolEntriesResponse is nil")
 	}
 	return x.GetMempoolEntriesResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetMempoolEntriesResponse) fromAppMessage(message *appmessage.GetMempoolEntriesResponseMessage) error {
+func (x *LingsMessage_GetMempoolEntriesResponse) fromAppMessage(message *appmessage.GetMempoolEntriesResponseMessage) error {
 	var rpcErr *RPCError
 	if message.Error != nil {
 		rpcErr = &RPCError{Message: message.Error.Message}

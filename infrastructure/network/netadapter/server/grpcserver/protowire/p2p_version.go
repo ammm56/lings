@@ -7,9 +7,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_Version) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_Version) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_Version is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_Version is nil")
 	}
 	return x.Version.toAppMessage()
 }
@@ -57,7 +57,7 @@ func (x *VersionMessage) toAppMessage() (appmessage.Message, error) {
 	}, nil
 }
 
-func (x *HoosatdMessage_Version) fromAppMessage(msgVersion *appmessage.MsgVersion) error {
+func (x *LingsMessage_Version) fromAppMessage(msgVersion *appmessage.MsgVersion) error {
 	err := appmessage.ValidateUserAgent(msgVersion.UserAgent)
 	if err != nil {
 		return err

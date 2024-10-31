@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_Reject) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_Reject) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_Reject is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_Reject is nil")
 	}
 	return x.Reject.toAppMessage()
 }
@@ -21,7 +21,7 @@ func (x *RejectMessage) toAppMessage() (appmessage.Message, error) {
 	}, nil
 }
 
-func (x *HoosatdMessage_Reject) fromAppMessage(msgReject *appmessage.MsgReject) error {
+func (x *LingsMessage_Reject) fromAppMessage(msgReject *appmessage.MsgReject) error {
 	x.Reject = &RejectMessage{
 		Reason: msgReject.Reason,
 	}

@@ -318,7 +318,7 @@ func TestMaxSompi(t *testing.T) {
 		params := &consensusConfig.Params
 		cfg := *consensusConfig
 		cfg.BlockCoinbaseMaturity = 0
-		cfg.PreDeflationaryPhaseBaseSubsidy = 20e6 * constants.SompiPerHoosat
+		cfg.PreDeflationaryPhaseBaseSubsidy = 20e6 * constants.SompiPerLings
 		tc, teardown, err := consensus.NewFactory().NewTestConsensus(&cfg, "TestMaxSompi")
 		if err != nil {
 			t.Fatalf("Error setting up tc: %+v", err)
@@ -480,7 +480,7 @@ func TestMaxSompi(t *testing.T) {
 		unsignedTxWithLargeInputAndOutputAmount, err := liblingswallet.CreateUnsignedTransaction(publicKeys, minimumSignatures,
 			[]*liblingswallet.Payment{{
 				Address: address,
-				Amount:  22e6 * constants.SompiPerHoosat,
+				Amount:  22e6 * constants.SompiPerLings,
 			}}, selectedUTXOsForTxWithLargeInputAndOutputAmount)
 		if err != nil {
 			t.Fatalf("CreateUnsignedTransactions: %+v", err)

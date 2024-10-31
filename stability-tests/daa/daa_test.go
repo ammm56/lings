@@ -181,8 +181,8 @@ func runDAATest(t *testing.T, testName string, runDuration time.Duration,
 	t.Logf("DAA TEST STARTED: %s", testName)
 	defer t.Logf("DAA TEST FINISHED: %s", testName)
 
-	tearDownHoosatd := common.RunHoosatdForTesting(t, "lings-daa-test", rpcAddress)
-	defer tearDownHoosatd()
+	tearDownLings := common.RunLingsForTesting(t, "lings-daa-test", rpcAddress)
+	defer tearDownLings()
 
 	rpcClient, err := rpcclient.NewRPCClient(rpcAddress)
 	if err != nil {

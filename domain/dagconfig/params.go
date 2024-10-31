@@ -25,19 +25,19 @@ var (
 	// the overhead of creating it multiple times.
 	bigOne = big.NewInt(1)
 
-	// mainPowMax is the highest proof of work value a Hoosat block can
+	// mainPowMax is the highest proof of work value a Lings block can
 	// have for the main network. It is the value 2^255 - 1.
 	mainPowMax = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 
-	// testnetPowMax is the highest proof of work value a Hoosat block
+	// testnetPowMax is the highest proof of work value a Lings block
 	// can have for the test network. It is the value 2^255 - 1.
 	testnetPowMax = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 
-	// simnetPowMax is the highest proof of work value a Hoosat block
+	// simnetPowMax is the highest proof of work value a Lings block
 	// can have for the simulation test network. It is the value 2^255 - 1.
 	simnetPowMax = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
 
-	// devnetPowMax is the highest proof of work value a Hoosat block
+	// devnetPowMax is the highest proof of work value a Lings block
 	// can have for the development network. It is the value
 	// 2^255 - 1.
 	devnetPowMax = new(big.Int).Sub(new(big.Int).Lsh(bigOne, 255), bigOne)
@@ -46,8 +46,8 @@ var (
 // KType defines the size of GHOSTDAG consensus algorithm K parameter.
 type KType uint8
 
-// Params defines a Hoosat network by its parameters. These parameters may be
-// used by Hoosat applications to differentiate networks as well as addresses
+// Params defines a Lings network by its parameters. These parameters may be
+// used by Lings applications to differentiate networks as well as addresses
 // and keys for one network from those intended for use on another network.
 type Params struct {
 	// K defines the K parameter for GHOSTDAG consensus algorithm.
@@ -58,7 +58,7 @@ type Params struct {
 	Name string
 
 	// Net defines the magic bytes used to identify the network.
-	Net appmessage.HoosatNet
+	Net appmessage.LingsNet
 
 	// RPCPort defines the rpc server port
 	RPCPort string
@@ -209,7 +209,7 @@ func (p *Params) PruningDepth() uint64 {
 	return 2*p.FinalityDepth() + 4*p.MergeSetSizeLimit*uint64(p.K) + 2*uint64(p.K) + 2
 }
 
-// MainnetParams defines the network parameters for the main Hoosat network.
+// MainnetParams defines the network parameters for the main Lings network.
 var MainnetParams = Params{
 	K:           defaultGHOSTDAGK,
 	Name:        "lings-mainnet",
@@ -217,8 +217,8 @@ var MainnetParams = Params{
 	RPCPort:     "42420",
 	DefaultPort: "42421",
 	DNSSeeds: []string{
-		// This DNS seeder is run by Toni Lukkaroinen
-		"mainnet-dnsseed.lings.fi",
+		// This DNS seeder is run by Amm56
+		"mainnet-dnsseed.jiubl.com",
 	},
 
 	// DAG parameters
@@ -250,7 +250,7 @@ var MainnetParams = Params{
 	AcceptUnroutable: false,
 
 	// Human-readable part for Bech32 encoded addresses
-	Prefix: util.Bech32PrefixHoosat,
+	Prefix: util.Bech32PrefixLings,
 
 	// Address encoding magics
 	PrivateKeyID: 0x80, // starts with 5 (uncompressed) or K (compressed)
@@ -279,7 +279,7 @@ var MainnetParams = Params{
 	POWScores:     []uint64{17500000},
 }
 
-// TestnetParams defines the network parameters for the test Hoosat network.
+// TestnetParams defines the network parameters for the test Lings network.
 var TestnetParams = Params{
 	K:           defaultGHOSTDAGK,
 	Name:        "lings-testnet",
@@ -287,7 +287,7 @@ var TestnetParams = Params{
 	RPCPort:     "42422",
 	DefaultPort: "42423",
 	DNSSeeds: []string{
-		"mainnet-dnsseed.lings.fi",
+		"testnet-dnsseed.jiubl.com",
 	},
 
 	// DAG parameters
@@ -318,7 +318,7 @@ var TestnetParams = Params{
 	AcceptUnroutable: false,
 
 	// Human-readable part for Bech32 encoded addresses
-	Prefix: util.Bech32PrefixHoosatTest,
+	Prefix: util.Bech32PrefixLingsTest,
 
 	// Address encoding magics
 	PrivateKeyID: 0xef, // starts with 9 (uncompressed) or c (compressed)
@@ -344,7 +344,7 @@ var TestnetParams = Params{
 	POWScores:     []uint64{5},
 }
 
-// SimnetParams defines the network parameters for the simulation test Hoosat
+// SimnetParams defines the network parameters for the simulation test Lings
 // network. This network is similar to the normal test network except it is
 // intended for private use within a group of individuals doing simulation
 // testing. The functionality is intended to differ in that the only nodes
@@ -388,7 +388,7 @@ var SimnetParams = Params{
 
 	PrivateKeyID: 0x64, // starts with 4 (uncompressed) or F (compressed)
 	// Human-readable part for Bech32 encoded addresses
-	Prefix: util.Bech32PrefixHoosatSim,
+	Prefix: util.Bech32PrefixLingsSim,
 
 	// EnableNonNativeSubnetworks enables non-native/coinbase transactions
 	EnableNonNativeSubnetworks: false,
@@ -411,7 +411,7 @@ var SimnetParams = Params{
 	POWScores:     []uint64{5},
 }
 
-// DevnetParams defines the network parameters for the development Hoosat network.
+// DevnetParams defines the network parameters for the development Lings network.
 var DevnetParams = Params{
 	K:           defaultGHOSTDAGK,
 	Name:        "lings-devnet",
@@ -448,7 +448,7 @@ var DevnetParams = Params{
 	AcceptUnroutable: true,
 
 	// Human-readable part for Bech32 encoded addresses
-	Prefix: util.Bech32PrefixHoosatDev,
+	Prefix: util.Bech32PrefixLingsev,
 
 	// Address encoding magics
 	PrivateKeyID: 0xef, // starts with 9 (uncompressed) or c (compressed)
@@ -474,14 +474,14 @@ var DevnetParams = Params{
 	POWScores:     []uint64{5},
 }
 
-// ErrDuplicateNet describes an error where the parameters for a Hoosat
+// ErrDuplicateNet describes an error where the parameters for a Lings
 // network could not be set due to the network already being a standard
 // network or previously-registered into this package.
-var ErrDuplicateNet = errors.New("duplicate Hoosat network")
+var ErrDuplicateNet = errors.New("duplicate Lings network")
 
-var registeredNets = make(map[appmessage.HoosatNet]struct{})
+var registeredNets = make(map[appmessage.LingsNet]struct{})
 
-// Register registers the network parameters for a Hoosat network. This may
+// Register registers the network parameters for a Lings network. This may
 // error with ErrDuplicateNet if the network is already registered (either
 // due to a previous Register call, or the network being one of the default
 // networks).

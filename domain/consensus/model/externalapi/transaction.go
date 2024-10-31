@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-// DomainTransaction represents a Hoosat transaction
+// DomainTransaction represents a Lings transaction
 type DomainTransaction struct {
 	Version      uint16
 	Inputs       []*DomainTransactionInput
@@ -127,7 +127,7 @@ func (tx *DomainTransaction) Equal(other *DomainTransaction) bool {
 	return true
 }
 
-// DomainTransactionInput represents a Hoosat transaction input
+// DomainTransactionInput represents a Lings transaction input
 type DomainTransactionInput struct {
 	PreviousOutpoint DomainOutpoint
 	SignatureScript  []byte
@@ -184,7 +184,7 @@ func (input *DomainTransactionInput) Clone() *DomainTransactionInput {
 	}
 }
 
-// DomainOutpoint represents a Hoosat transaction outpoint
+// DomainOutpoint represents a Lings transaction outpoint
 type DomainOutpoint struct {
 	TransactionID DomainTransactionID
 	Index         uint32
@@ -224,7 +224,7 @@ func NewDomainOutpoint(id *DomainTransactionID, index uint32) *DomainOutpoint {
 	}
 }
 
-// ScriptPublicKey represents a Hoosatd ScriptPublicKey
+// ScriptPublicKey represents a Lings ScriptPublicKey
 type ScriptPublicKey struct {
 	Script  []byte
 	Version uint16
@@ -260,7 +260,7 @@ func NewScriptPublicKeyFromString(ScriptPublicKeyString string) *ScriptPublicKey
 	return &ScriptPublicKey{Script: script, Version: version}
 }
 
-// DomainTransactionOutput represents a Hoosatd transaction output
+// DomainTransactionOutput represents a Lings transaction output
 type DomainTransactionOutput struct {
 	Value           uint64
 	ScriptPublicKey *ScriptPublicKey
@@ -296,7 +296,7 @@ func (output *DomainTransactionOutput) Clone() *DomainTransactionOutput {
 	}
 }
 
-// DomainTransactionID represents the ID of a Hoosat transaction
+// DomainTransactionID represents the ID of a Lings transaction
 type DomainTransactionID DomainHash
 
 // NewDomainTransactionIDFromByteArray constructs a new TransactionID out of a byte array

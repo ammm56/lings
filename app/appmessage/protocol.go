@@ -89,8 +89,8 @@ func (f ServiceFlag) String() string {
 	return s
 }
 
-// HoosatNet represents which lings network a message belongs to.
-type HoosatNet uint32
+// LingsNet represents which lings network a message belongs to.
+type LingsNet uint32
 
 // Constants used to indicate the message lings network. They can also be
 // used to seek to the next message when a stream's state is unknown, but
@@ -98,32 +98,32 @@ type HoosatNet uint32
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
 	// Mainnet represents the main lings network.
-	Mainnet HoosatNet = 0x3ddcf71d
+	Mainnet LingsNet = 0x3ddcf71d
 
 	// Testnet represents the test network.
-	Testnet HoosatNet = 0xddb8af8f
+	Testnet LingsNet = 0xddb8af8f
 
 	// Simnet represents the simulation test network.
-	Simnet HoosatNet = 0x374dcf1c
+	Simnet LingsNet = 0x374dcf1c
 
 	// Devnet represents the development test network.
-	Devnet HoosatNet = 0x732d87e1
+	Devnet LingsNet = 0x732d87e1
 )
 
 // bnStrings is a map of lings networks back to their constant names for
 // pretty printing.
-var bnStrings = map[HoosatNet]string{
+var bnStrings = map[LingsNet]string{
 	Mainnet: "Mainnet",
 	Testnet: "Testnet",
 	Simnet:  "Simnet",
 	Devnet:  "Devnet",
 }
 
-// String returns the HoosatNet in human-readable form.
-func (n HoosatNet) String() string {
+// String returns the LingsNet in human-readable form.
+func (n LingsNet) String() string {
 	if s, ok := bnStrings[n]; ok {
 		return s
 	}
 
-	return fmt.Sprintf("Unknown HoosatNet (%d)", uint32(n))
+	return fmt.Sprintf("Unknown LingsNet (%d)", uint32(n))
 }

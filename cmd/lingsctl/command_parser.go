@@ -12,7 +12,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func parseCommand(args []string, commandDescs []*commandDescription) (*protowire.HoosatdMessage, error) {
+func parseCommand(args []string, commandDescs []*commandDescription) (*protowire.LingsMessage, error) {
 	commandName, parameterStrings := args[0], args[1:]
 
 	var commandDesc *commandDescription
@@ -39,7 +39,7 @@ func parseCommand(args []string, commandDescs []*commandDescription) (*protowire
 		setField(commandValue, parameterValue, parameterDesc)
 	}
 
-	return generateHoosatdMessage(commandValue, commandDesc)
+	return generateLingsMessage(commandValue, commandDesc)
 }
 
 func setField(commandValue reflect.Value, parameterValue reflect.Value, parameterDesc *parameterDescription) {

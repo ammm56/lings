@@ -1,10 +1,10 @@
 /*
-Package addressmanager implements concurrency safe Hoosat address manager.
+Package addressmanager implements concurrency safe Lings address manager.
 
 # Address Manager Overview
 
-In order maintain the peer-to-peer Hoosat network, there needs to be a source
-of addresses to connect to as nodes come and go. The Hoosat protocol provides
+In order maintain the peer-to-peer Lings network, there needs to be a source
+of addresses to connect to as nodes come and go. The Lings protocol provides
 the getaddr and addr messages to allow peers to communicate known addresses with
 each other. However, there needs to a mechanism to store those results and
 select peers from them. It is also important to note that remote peers can't

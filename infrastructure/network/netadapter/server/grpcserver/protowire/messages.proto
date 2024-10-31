@@ -6,7 +6,7 @@ option go_package = "github.com/ammm56/lings/protowire";
 import "p2p.proto";
 import "rpc.proto";
 
-message HoosatdMessage {
+message LingsMessage {
   oneof payload {
     AddressesMessage addresses = 1;
     BlockMessage block = 2;
@@ -143,9 +143,9 @@ message HoosatdMessage {
 }
 
 service P2P {
-  rpc MessageStream (stream HoosatdMessage) returns (stream HoosatdMessage) {}
+  rpc MessageStream (stream LingsMessage) returns (stream LingsMessage) {}
 }
 
 service RPC {
-  rpc MessageStream (stream HoosatdMessage) returns (stream HoosatdMessage) {}
+  rpc MessageStream (stream LingsMessage) returns (stream LingsMessage) {}
 }

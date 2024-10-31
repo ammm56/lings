@@ -36,7 +36,7 @@ func main() {
 	defer client.Disconnect()
 
 	if !cfg.AllowConnectionToDifferentVersions {
-		lingsMessage, err := client.Post(&protowire.HoosatdMessage{Payload: &protowire.HoosatdMessage_GetInfoRequest{GetInfoRequest: &protowire.GetInfoRequestMessage{}}})
+		lingsMessage, err := client.Post(&protowire.LingsMessage{Payload: &protowire.LingsMessage_GetInfoRequest{GetInfoRequest: &protowire.GetInfoRequestMessage{}}})
 		if err != nil {
 			printErrorAndExit(fmt.Sprintf("Cannot post GetInfo message: %s", err))
 		}
@@ -101,7 +101,7 @@ func postJSON(cfg *configFlags, client *grpcclient.GRPCClient, doneChan chan str
 }
 
 func prettifyResponse(response string) string {
-	lingsMessage := &protowire.HoosatdMessage{}
+	lingsMessage := &protowire.LingsMessage{}
 	err := protojson.Unmarshal([]byte(response), lingsMessage)
 	if err != nil {
 		printErrorAndExit(fmt.Sprintf("error parsing the response from the RPC server: %s", err))

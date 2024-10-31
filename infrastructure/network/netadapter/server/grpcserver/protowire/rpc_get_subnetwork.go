@@ -5,14 +5,14 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_GetSubnetworkRequest) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetSubnetworkRequest) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetSubnetworkRequest is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetSubnetworkRequest is nil")
 	}
 	return x.GetSubnetworkRequest.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetSubnetworkRequest) fromAppMessage(message *appmessage.GetSubnetworkRequestMessage) error {
+func (x *LingsMessage_GetSubnetworkRequest) fromAppMessage(message *appmessage.GetSubnetworkRequestMessage) error {
 	x.GetSubnetworkRequest = &GetSubnetworkRequestMessage{
 		SubnetworkId: message.SubnetworkID,
 	}
@@ -28,14 +28,14 @@ func (x *GetSubnetworkRequestMessage) toAppMessage() (appmessage.Message, error)
 	}, nil
 }
 
-func (x *HoosatdMessage_GetSubnetworkResponse) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_GetSubnetworkResponse) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_GetSubnetworkResponse is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_GetSubnetworkResponse is nil")
 	}
 	return x.GetSubnetworkResponse.toAppMessage()
 }
 
-func (x *HoosatdMessage_GetSubnetworkResponse) fromAppMessage(message *appmessage.GetSubnetworkResponseMessage) error {
+func (x *LingsMessage_GetSubnetworkResponse) fromAppMessage(message *appmessage.GetSubnetworkResponseMessage) error {
 	var err *RPCError
 	if message.Error != nil {
 		err = &RPCError{Message: message.Error.Message}

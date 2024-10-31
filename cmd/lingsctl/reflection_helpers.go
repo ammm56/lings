@@ -9,8 +9,8 @@ import (
 
 // protobuf generates the command types with two types:
 // 1. A concrete type that holds the fields of the command bearing the name of the command with `RequestMessage` as suffix
-// 2. A wrapper that implements isHoosatdMessage_Payload, having a single field pointing to the concrete command
-//    bearing the name of the command with `HoosatdMessage_` prefix and `Request` suffix
+// 2. A wrapper that implements isLingsMessage_Payload, having a single field pointing to the concrete command
+//    bearing the name of the command with `LingsMessage_` prefix and `Request` suffix
 
 // unwrapCommandType converts a reflect.Type signifying a wrapper type into the concrete request type
 func unwrapCommandType(requestTypeWrapped reflect.Type) reflect.Type {
@@ -28,14 +28,14 @@ func isFieldExported(field reflect.StructField) bool {
 	return unicode.IsUpper(rune(field.Name[0]))
 }
 
-// generateHoosatdMessage generates a wrapped HoosatdMessage with the given `commandValue`
-func generateHoosatdMessage(commandValue reflect.Value, commandDesc *commandDescription) (*protowire.HoosatdMessage, error) {
+// generateLingsMessage generates a wrapped LingsMessage with the given `commandValue`
+func generateLingsMessage(commandValue reflect.Value, commandDesc *commandDescription) (*protowire.LingsMessage, error) {
 	commandWrapper := reflect.New(commandDesc.typeof)
 	unwrapCommandValue(commandWrapper).Set(commandValue)
 
-	lingsMessage := reflect.New(reflect.TypeOf(protowire.HoosatdMessage{}))
+	lingsMessage := reflect.New(reflect.TypeOf(protowire.LingsMessage{}))
 	lingsMessage.Elem().FieldByName("Payload").Set(commandWrapper)
-	return lingsMessage.Interface().(*protowire.HoosatdMessage), nil
+	return lingsMessage.Interface().(*protowire.LingsMessage), nil
 }
 
 // pointerToValue returns a reflect.Value that represents a pointer to the given value

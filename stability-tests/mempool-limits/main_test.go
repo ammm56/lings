@@ -74,9 +74,9 @@ func TestMempoolLimits(t *testing.T) {
 }
 
 func buildRPCClient(t *testing.T) *rpcclient.RPCClient {
-	client, err := rpcclient.NewRPCClient(activeConfig().HoosatdRPCAddress)
+	client, err := rpcclient.NewRPCClient(activeConfig().LingsRPCAddress)
 	if err != nil {
-		t.Fatalf("error connecting to %s: %s", activeConfig().HoosatdRPCAddress, err)
+		t.Fatalf("error connecting to %s: %s", activeConfig().LingsRPCAddress, err)
 	}
 	return client
 }

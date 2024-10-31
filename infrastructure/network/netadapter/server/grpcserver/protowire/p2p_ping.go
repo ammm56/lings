@@ -5,9 +5,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_Ping) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_Ping) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_Ping is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_Ping is nil")
 	}
 	return x.Ping.toAppMessage()
 }
@@ -21,7 +21,7 @@ func (x *PingMessage) toAppMessage() (appmessage.Message, error) {
 	}, nil
 }
 
-func (x *HoosatdMessage_Ping) fromAppMessage(msgPing *appmessage.MsgPing) error {
+func (x *LingsMessage_Ping) fromAppMessage(msgPing *appmessage.MsgPing) error {
 	x.Ping = &PingMessage{
 		Nonce: msgPing.Nonce,
 	}

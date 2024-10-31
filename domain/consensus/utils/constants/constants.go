@@ -21,11 +21,11 @@ const (
 	// MaxScriptPublicKeyVersion is the current latest supported public key script version.
 	MaxScriptPublicKeyVersion uint16 = 0
 
-	// SompiPerHoosat is the number of sompi in one lings (1 LSN).
-	SompiPerHoosat = 100_000_000
+	// SompiPerLings is the number of sompi in one lings (1 LSN).
+	SompiPerLings = 100_000_000
 
 	// MaxSompi is the maximum transaction amount allowed in sompi.
-	MaxSompi = uint64(17_100_000_000 * SompiPerHoosat)
+	MaxSompi = uint64(17_100_000_000 * SompiPerLings)
 
 	// MaxTxInSequenceNum is the maximum sequence number the sequence field
 	// of a transaction input can be.

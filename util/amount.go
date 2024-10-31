@@ -88,7 +88,7 @@ func NewAmount(f float64) (Amount, error) {
 		return 0, errors.New("invalid lings amount")
 	}
 
-	return round(f * constants.SompiPerHoosat), nil
+	return round(f * constants.SompiPerLings), nil
 }
 
 // ToUnit converts a monetary amount counted in lings base units to a

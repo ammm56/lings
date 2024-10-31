@@ -10,8 +10,8 @@ import (
 	"github.com/ammm56/lings/domain/consensus/utils/utxo"
 )
 
-// HoosatwalletdUTXOsToliblingswalletUTXOs converts a  []*pb.UtxosByAddressesEntry to a []*liblingswallet.UTXO
-func HoosatwalletdUTXOsToliblingswalletUTXOs(lingswalletdUtxoEntires []*pb.UtxosByAddressesEntry) ([]*UTXO, error) {
+// LingswalletdUTXOsToliblingswalletUTXOs converts a  []*pb.UtxosByAddressesEntry to a []*liblingswallet.UTXO
+func LingswalletdUTXOsToliblingswalletUTXOs(lingswalletdUtxoEntires []*pb.UtxosByAddressesEntry) ([]*UTXO, error) {
 	UTXOs := make([]*UTXO, len(lingswalletdUtxoEntires))
 	for i, entry := range lingswalletdUtxoEntires {
 		script, err := hex.DecodeString(entry.UtxoEntry.ScriptPublicKey.ScriptPublicKey)
@@ -41,8 +41,8 @@ func HoosatwalletdUTXOsToliblingswalletUTXOs(lingswalletdUtxoEntires []*pb.Utxos
 	return UTXOs, nil
 }
 
-// AppMessageUTXOToHoosatwalletdUTXO converts an appmessage.UTXOsByAddressesEntry to a  pb.UtxosByAddressesEntry
-func AppMessageUTXOToHoosatwalletdUTXO(appUTXOsByAddressesEntry *appmessage.UTXOsByAddressesEntry) *pb.UtxosByAddressesEntry {
+// AppMessageUTXOToLingswalletdUTXO converts an appmessage.UTXOsByAddressesEntry to a  pb.UtxosByAddressesEntry
+func AppMessageUTXOToLingswalletdUTXO(appUTXOsByAddressesEntry *appmessage.UTXOsByAddressesEntry) *pb.UtxosByAddressesEntry {
 	return &pb.UtxosByAddressesEntry{
 		Outpoint: &pb.Outpoint{
 			TransactionId: appUTXOsByAddressesEntry.Outpoint.TransactionID,

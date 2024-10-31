@@ -6,7 +6,7 @@ supported lings messages to and from the appmessage. This package does not deal
 with the specifics of message handling such as what to do when a message is
 received. This provides the caller with a high level of flexibility.
 
-# Hoosat Message Overview
+# Lings Message Overview
 
 The lings protocol consists of exchanging messages between peers. Each
 message is preceded by a header which identifies information about it such as
@@ -60,7 +60,7 @@ latest protocol version this package supports and is typically the value to use
 for all outbound connections before a potentially lower protocol version is
 negotiated.
 
-# Hoosat Network
+# Lings Network
 
 The lings network is a magic number which is used to identify the start of a
 message and which lings network the message applies to. This package provides

@@ -13,7 +13,7 @@ func TestCalcDeflationaryPeriodBlockSubsidy(t *testing.T) {
 	const secondsPerMonth = 2629800
 	const secondsPerHalving = secondsPerMonth * 12
 	const deflationaryPhaseDaaScore = secondsPerMonth * 6
-	const deflationaryPhaseBaseSubsidy = 100 * constants.SompiPerHoosat
+	const deflationaryPhaseBaseSubsidy = 100 * constants.SompiPerLings
 	deflationaryPhaseCurveFactor := dagconfig.MainnetParams.DeflationaryPhaseCurveFactor
 	coinbaseManagerInterface := New(
 		nil,
@@ -87,7 +87,7 @@ func TestCalcDeflationaryPeriodBlockSubsidy(t *testing.T) {
 func TestBuildSubsidyTable(t *testing.T) {
 	deflationaryPhaseBaseSubsidy := dagconfig.MainnetParams.DeflationaryPhaseBaseSubsidy
 	deflationaryPhaseCurveFactor := dagconfig.MainnetParams.DeflationaryPhaseCurveFactor
-	if deflationaryPhaseBaseSubsidy != 440*constants.SompiPerHoosat {
+	if deflationaryPhaseBaseSubsidy != 440*constants.SompiPerLings {
 		t.Errorf("TestBuildSubsidyTable: table generation function was not updated to reflect "+
 			"the new base subsidy %d. Please fix the constant above and replace subsidyByDeflationaryMonthTable "+
 			"in coinbasemanager.go with the printed table", deflationaryPhaseBaseSubsidy)

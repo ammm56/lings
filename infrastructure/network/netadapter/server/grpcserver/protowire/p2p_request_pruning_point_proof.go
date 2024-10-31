@@ -5,13 +5,13 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (x *HoosatdMessage_RequestPruningPointProof) toAppMessage() (appmessage.Message, error) {
+func (x *LingsMessage_RequestPruningPointProof) toAppMessage() (appmessage.Message, error) {
 	if x == nil {
-		return nil, errors.Wrapf(errorNil, "HoosatdMessage_RequestPruningPointProof is nil")
+		return nil, errors.Wrapf(errorNil, "LingsMessage_RequestPruningPointProof is nil")
 	}
 	return &appmessage.MsgRequestPruningPointProof{}, nil
 }
 
-func (x *HoosatdMessage_RequestPruningPointProof) fromAppMessage(_ *appmessage.MsgRequestPruningPointProof) error {
+func (x *LingsMessage_RequestPruningPointProof) fromAppMessage(_ *appmessage.MsgRequestPruningPointProof) error {
 	return nil
 }
