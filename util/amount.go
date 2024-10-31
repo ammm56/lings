@@ -21,11 +21,11 @@ type AmountUnit int
 // These constants define various units used when describing a lings
 // monetary amount.
 const (
-	AmountMegaHSAT  AmountUnit = 6
-	AmountKiloHSAT  AmountUnit = 3
-	AmountHSAT      AmountUnit = 0
-	AmountMilliHSAT AmountUnit = -3
-	AmountMicroHSAT AmountUnit = -6
+	AmountMegaLSN  AmountUnit = 6
+	AmountKiloLSN  AmountUnit = 3
+	AmountLSN      AmountUnit = 0
+	AmountMilliLSN AmountUnit = -3
+	AmountMicroLSN AmountUnit = -6
 	AmountSompi     AmountUnit = -8
 )
 
@@ -34,16 +34,16 @@ const (
 // units, "1eN LSN" is returned, where N is the AmountUnit.
 func (u AmountUnit) String() string {
 	switch u {
-	case AmountMegaHSAT:
-		return "MHSAT"
-	case AmountKiloHSAT:
-		return "kHSAT"
-	case AmountHSAT:
+	case AmountMegaLSN:
+		return "MLSN"
+	case AmountKiloLSN:
+		return "kLSN"
+	case AmountLSN:
 		return "LSN"
-	case AmountMilliHSAT:
-		return "mHSAT"
-	case AmountMicroHSAT:
-		return "μHSAT"
+	case AmountMilliLSN:
+		return "mLSN"
+	case AmountMicroLSN:
+		return "μLSN"
 	case AmountSompi:
 		return "Sompi"
 	default:
@@ -97,9 +97,9 @@ func (a Amount) ToUnit(u AmountUnit) float64 {
 	return float64(a) / math.Pow10(int(u+8))
 }
 
-// ToHSAT is the equivalent of calling ToUnit with AmountHSAT.
-func (a Amount) ToHSAT() float64 {
-	return a.ToUnit(AmountHSAT)
+// ToLSN is the equivalent of calling ToUnit with AmountLSN.
+func (a Amount) ToLSN() float64 {
+	return a.ToUnit(AmountLSN)
 }
 
 // Format formats a monetary amount counted in lings base units as a
@@ -111,9 +111,9 @@ func (a Amount) Format(u AmountUnit) string {
 	return strconv.FormatFloat(a.ToUnit(u), 'f', -int(u+8), 64) + units
 }
 
-// String is the equivalent of calling Format with AmountHSAT.
+// String is the equivalent of calling Format with AmountLSN.
 func (a Amount) String() string {
-	return a.Format(AmountHSAT)
+	return a.Format(AmountLSN)
 }
 
 // MulF64 multiplies an Amount by a floating point value. While this is not

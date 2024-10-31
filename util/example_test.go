@@ -64,17 +64,17 @@ func ExampleNewAmount() {
 func ExampleAmount_unitConversions() {
 	amount := util.Amount(44433322211100)
 
-	fmt.Println("Sompi to kHSAT:", amount.Format(util.AmountKiloHSAT))
+	fmt.Println("Sompi to kLSN:", amount.Format(util.AmountKiloLSN))
 	fmt.Println("Sompi to LSN:", amount)
-	fmt.Println("Sompi to MilliHSAT:", amount.Format(util.AmountMilliHSAT))
-	fmt.Println("Sompi to MicroHSAT:", amount.Format(util.AmountMicroHSAT))
+	fmt.Println("Sompi to MilliLSN:", amount.Format(util.AmountMilliLSN))
+	fmt.Println("Sompi to MicroLSN:", amount.Format(util.AmountMicroLSN))
 	fmt.Println("Sompi to Sompi:", amount.Format(util.AmountSompi))
 
 	// Output:
-	// Sompi to kHSAT: 444.333222111 kHSAT
+	// Sompi to kLSN: 444.333222111 kLSN
 	// Sompi to LSN: 444333.222111 LSN
-	// Sompi to MilliHSAT: 444333222.111 mHSAT
-	// Sompi to MicroHSAT: 444333222111 μHSAT
+	// Sompi to MilliLSN: 444333222.111 mLSN
+	// Sompi to MicroLSN: 444333222111 μLSN
 	// Sompi to Sompi: 44433322211100 Sompi
 }
 

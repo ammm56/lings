@@ -41,8 +41,8 @@ func commandLoop(argsChan <-chan []string) ([]commandFailure, error) {
 		}
 
 		cmd := exec.Command("lings", args...)
-		cmd.Stdout = common.NewLogWriter(log, logger.LevelTrace, "HSATD-STDOUT")
-		cmd.Stderr = common.NewLogWriter(log, logger.LevelWarn, "HSATD-STDERR")
+		cmd.Stdout = common.NewLogWriter(log, logger.LevelTrace, "LSND-STDOUT")
+		cmd.Stderr = common.NewLogWriter(log, logger.LevelWarn, "LSND-STDERR")
 
 		log.Infof("Running `%s`", cmd)
 		errChan := make(chan error)

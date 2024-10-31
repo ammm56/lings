@@ -103,40 +103,40 @@ func TestAmountUnitConversions(t *testing.T) {
 		s         string
 	}{
 		{
-			name:      "MHSAT",
+			name:      "MLSN",
 			amount:    Amount(constants.MaxSompi),
-			unit:      AmountMegaHSAT,
+			unit:      AmountMegaLSN,
 			converted: 29000,
-			s:         "29000 MHSAT",
+			s:         "29000 MLSN",
 		},
 		{
-			name:      "kHSAT",
+			name:      "kLSN",
 			amount:    44433322211100,
-			unit:      AmountKiloHSAT,
+			unit:      AmountKiloLSN,
 			converted: 444.33322211100,
-			s:         "444.333222111 kHSAT",
+			s:         "444.333222111 kLSN",
 		},
 		{
 			name:      "LSN",
 			amount:    44433322211100,
-			unit:      AmountHSAT,
+			unit:      AmountLSN,
 			converted: 444333.22211100,
 			s:         "444333.222111 LSN",
 		},
 		{
-			name:      "mHSAT",
+			name:      "mLSN",
 			amount:    44433322211100,
-			unit:      AmountMilliHSAT,
+			unit:      AmountMilliLSN,
 			converted: 444333222.11100,
-			s:         "444333222.111 mHSAT",
+			s:         "444333222.111 mLSN",
 		},
 		{
 
-			name:      "μHSAT",
+			name:      "μLSN",
 			amount:    44433322211100,
-			unit:      AmountMicroHSAT,
+			unit:      AmountMicroLSN,
 			converted: 444333222111.00,
-			s:         "444333222111 μHSAT",
+			s:         "444333222111 μLSN",
 		},
 		{
 
@@ -169,18 +169,18 @@ func TestAmountUnitConversions(t *testing.T) {
 			continue
 		}
 
-		// Verify that Amount.ToHSAT works as advertised.
-		f1 := test.amount.ToUnit(AmountHSAT)
-		f2 := test.amount.ToHSAT()
+		// Verify that Amount.ToLSN works as advertised.
+		f1 := test.amount.ToUnit(AmountLSN)
+		f2 := test.amount.ToLSN()
 		if f1 != f2 {
-			t.Errorf("%v: ToHSAT does not match ToUnit(AmountHSAT): %v != %v", test.name, f1, f2)
+			t.Errorf("%v: ToLSN does not match ToUnit(AmountLSN): %v != %v", test.name, f1, f2)
 		}
 
 		// Verify that Amount.String works as advertised.
-		s1 := test.amount.Format(AmountHSAT)
+		s1 := test.amount.Format(AmountLSN)
 		s2 := test.amount.String()
 		if s1 != s2 {
-			t.Errorf("%v: String does not match Format(AmountHSAT): %v != %v", test.name, s1, s2)
+			t.Errorf("%v: String does not match Format(AmountLSN): %v != %v", test.name, s1, s2)
 		}
 	}
 }

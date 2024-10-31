@@ -11,8 +11,8 @@ import (
 	"github.com/pkg/errors"
 )
 
-// FomatHSAT takes the amount of sompis as uint64, and returns amount of LSN with 8  decimal places
-func FomatHSAT(amount uint64) string {
+// FomatLSN takes the amount of sompis as uint64, and returns amount of LSN with 8  decimal places
+func FomatLSN(amount uint64) string {
 	res := "                   "
 	if amount > 0 {
 		res = fmt.Sprintf("%19.8f", float64(amount)/constants.SompiPerLings)
@@ -22,7 +22,7 @@ func FomatHSAT(amount uint64) string {
 
 // KasToSompi takes in a string representation of the Kas value to convert to Sompi
 func KasToSompi(amount string) (uint64, error) {
-	err := validateHSATAmountFormat(amount)
+	err := validateLSNAmountFormat(amount)
 
 	if err != nil {
 		return 0, err
@@ -52,7 +52,7 @@ func KasToSompi(amount string) (uint64, error) {
 	return convertedAmount, err
 }
 
-func validateHSATAmountFormat(amount string) error {
+func validateLSNAmountFormat(amount string) error {
 	// Check whether it's an integer, or a float with max 8 digits
 	match, err := regexp.MatchString("^([1-9]\\d{0,11}|0)(\\.\\d{0,8})?$", amount)
 

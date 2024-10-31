@@ -109,7 +109,7 @@ func startNode() (teardown func(), err error) {
 	}
 	log.Infof("lings datadir: %s", dataDir)
 
-	lingsCmd, err := common.StartCmd("HSATD",
+	lingsCmd, err := common.StartCmd("LSND",
 		"lings",
 		common.NetworkCliArgumentFromNetParams(activeConfig().NetParams()),
 		"--appdir", dataDir,

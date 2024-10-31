@@ -8,4 +8,4 @@ import (
 	"github.com/ammm56/lings/infrastructure/logger"
 )
 
-var kasdLog = logger.RegisterSubSystem("HSATD")
+var kasdLog = logger.RegisterSubSystem("LSND")

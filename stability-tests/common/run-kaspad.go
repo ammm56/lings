@@ -17,7 +17,7 @@ func RunLingsForTesting(t *testing.T, testName string, rpcAddress string) func()
 		t.Fatalf("TempDir: %s", err)
 	}
 
-	lingsRunCommand, err := StartCmd("HSATD",
+	lingsRunCommand, err := StartCmd("LSND",
 		"lings",
 		NetworkCliArgumentFromNetParams(&dagconfig.DevnetParams),
 		"--appdir", appDir,

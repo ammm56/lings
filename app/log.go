@@ -9,4 +9,4 @@ import (
 	"github.com/ammm56/lings/infrastructure/logger"
 )
 
-var log = logger.RegisterSubSystem("HSATD")
+var log = logger.RegisterSubSystem("LSND")
